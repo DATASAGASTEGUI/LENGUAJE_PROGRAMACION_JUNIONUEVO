@@ -1,0 +1,141 @@
+﻿<Window x:Class="ProyectoVentanaMysql.ProyectoFerreteria.BuscarVentaPorFechaHoraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoVentanaMysql.ProyectoFerreteria"
+        mc:Ignorable="d"
+        
+        Title="Buscar Venta"
+        Height="500"
+        Width="800"
+        FontFamily="Courier New"
+        FontSize="12"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Label Content="Ventas:" VerticalAlignment="Center" Margin="5"/>
+        </StackPanel>
+
+        <!-- DataGrid para mostrar ventas -->
+        <DataGrid x:Name="VentaDataGrid" 
+                  Grid.Row="1"
+                  Margin="10"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False" 
+                  SelectionMode="Single"
+                  ColumnWidth="*">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Venta" Binding="{Binding IdVenta}" />
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" />
+
+                <DataGridTextColumn Header="Total">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="Total" StringFormat="{}{0:C2}"/>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button Content="Productos vendidos" Width="180" Margin="5" Click="BtnProductosVendidos_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Label Content="Detalle de Venta:" VerticalAlignment="Center" Margin="5"/>
+        </StackPanel>
+
+        <!-- DataGrid para mostrar detalle de venta -->
+        <DataGrid x:Name="DetalleVentaDataGrid" 
+                  Grid.Row="4"
+                  Margin="5"
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  SelectionMode="Single"
+                  ColumnWidth="*">
+
+            <!-- Estilo para las cabeceras -->
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="Blue"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <!-- Estilo para las celdas -->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Padding" Value="20,5"/>
+                    <!-- Espacio interno: 10px horizontal, 5px vertical -->
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Producto" Binding="{Binding IdProducto}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Producto" Binding="{Binding NombreProducto}" />
+
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario, StringFormat={}{0:F2}}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Sub-Total" Binding="{Binding Total, StringFormat={}{0:F2}}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Panel para seleccionar fecha y hora -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <DatePicker x:Name="DatePickerFecha" Width="180" Margin="5"/>
+            <Label Content="Hora:" VerticalAlignment="Center" Margin="5"/>
+            <xctk:TimePicker x:Name="TimePickerHora"
+                 Width="100"
+                 Margin="5"
+                 Format="Custom"
+                 FormatString="HH:mm:ss"/>
+
+            <Button Content="Buscar por fecha" Width="180" Margin="5" Click="BtnBuscarVentaPorFecha_Click"/>
+            <Button Content="Buscar por fecha y hora" Width="180" Margin="5" Click="BtnBuscarVentaPorFechaHora_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
