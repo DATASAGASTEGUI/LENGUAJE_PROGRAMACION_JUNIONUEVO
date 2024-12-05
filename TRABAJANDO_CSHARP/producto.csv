@@ -1,0 +1,40 @@
+id_producto;nombre;descripcion;precio;stock;categoria
+1;Martillo;Martillo de acero con mango de madera;15.50;50;Herramientas
+2;Destornillador;Juego de destornilladores planos y de estrella;12.75;40;Herramientas
+3;Llave Inglesa;Llave ajustable de acero inoxidable;18.20;30;Herramientas
+4;Cinta Métrica;Cinta métrica de 5 metros con bloqueo automático;8.50;25;Medición
+5;Taladro;Taladro eléctrico con velocidad variable;85.99;10;Herramientas
+6;Sierra;Sierra manual para madera con mango ergonómico;20.45;15;Herramientas
+7;Tornillos;Paquete de 100 tornillos de 2 pulgadas;5.75;100;Fijaciones
+8;Clavos;Caja de 500 clavos de acero;7.20;150;Fijaciones
+9;Cemento;Saco de cemento de 50 kg;10.00;20;Construcción
+10;Arena;Bolsa de arena de 25 kg;3.50;50;Construcción
+11;Tubos PVC;Tubo de PVC de 1 pulgada, 3 metros;4.80;35;Plomería
+12;Llave de paso;Llave de paso de 1/2 pulgada para agua;6.25;40;Plomería
+13;Cinta aislante;Rollo de cinta aislante negra de alta resistencia;2.50;75;Electricidad
+14;Foco LED;Foco LED de 9W luz cálida;3.20;100;Electricidad
+15;Interruptor;Interruptor de pared blanco;4.30;60;Electricidad
+16;Cable eléctrico;Rollo de cable eléctrico de 10 metros;15.00;25;Electricidad
+17;Pintura blanca;Galón de pintura blanca mate;18.50;15;Pintura
+18;Rodillo;Rodillo para pintar con mango ergonómico;9.75;30;Pintura
+19;Brocha;Brocha de 3 pulgadas para pintura;4.10;50;Pintura
+20;Adhesivo;Adhesivo multiusos de alta resistencia;6.00;40;Adhesivos
+21;Pegamento PVC;Pegamento especial para tubos de PVC;5.25;30;Adhesivos
+22;Escalera;Escalera de aluminio de 6 escalones;75.00;5;Herramientas
+23;Nivel;Nivel de burbuja de 40 cm;14.00;20;Medición
+24;Guantes;Par de guantes de trabajo de cuero;8.50;35;Protección
+25;Máscara;Máscara de protección contra polvo;3.50;50;Protección
+26;Flexómetro;Flexómetro de 3 metros;7.20;25;Medición
+27;Alicates;Alicates universales de acero;12.30;20;Herramientas
+28;Llave de tubo;Llave de tubo para plomería;22.10;15;Plomería
+29;Esmeril;Esmeril angular de 4.5 pulgadas;55.99;8;Herramientas
+30;Carretilla;Carretilla de acero con neumático sólido;95.00;10;Construcción
+31;Pala;Pala para excavación con mango de madera;16.20;20;Construcción
+32;Alambre galvanizado;Rollo de alambre galvanizado de 1 mm;12.50;30;Construcción
+33;Cerradura;Cerradura de seguridad para puerta;25.00;15;Seguridad
+34;Candado;Candado de acero inoxidable con 2 llaves;10.99;50;Seguridad
+35;Tubería de cobre;Tubería de cobre de 1/2 pulgada, 2 metros;25.75;20;Plomería
+36;Llave Allen;Juego de llaves Allen, 9 piezas;9.90;25;Herramientas
+37;Disco de corte;Disco de corte para metal, 7 pulgadas;6.80;40;Herramientas
+38;Lija;Paquete de 5 hojas de lija para madera;4.50;50;Pintura
+39;Silicón;Silicón transparente para sellado, 280 ml;5.00;30;Adhesivos

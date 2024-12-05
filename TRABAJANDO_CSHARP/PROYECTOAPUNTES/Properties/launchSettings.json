@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PROYECTOAPUNTES": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

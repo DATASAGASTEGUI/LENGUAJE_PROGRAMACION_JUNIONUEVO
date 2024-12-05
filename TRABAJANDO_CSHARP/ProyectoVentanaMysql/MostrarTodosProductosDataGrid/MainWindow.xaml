@@ -1,0 +1,51 @@
+﻿<Window x:Class="ProyectoVentanaMysql.MostrarTodosProductosDataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoVentanaMysql.MostrarTodosProductosDataGrid"
+        mc:Ignorable="d"
+        
+        Title="Ventana WPF"
+        Height="330"
+        Width="600"
+        Icon="F:/BORJA80GB/TRABAJANDO/PROJECTS___C#/C#_TEXTO/cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="550">
+            <!-- Cabecera -->
+            <TextBlock Text="LISTA DE PRODUCTOS"
+                       Margin="5"
+                       FontSize="15"
+                       TextAlignment="Center"
+                       Foreground="Blue" />
+
+            <!-- DataGrid para mostrar los productos -->
+            <DataGrid Name="dgProductos"
+                      Margin="5"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Producto" Binding="{Binding id_producto}" Width="*"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" Width="*"/>
+                    <DataGridTextColumn Header="Descripción" Binding="{Binding descripcion}" Width="*"/>
+                    <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="*"/>
+                    <DataGridTextColumn Header="Stock" Binding="{Binding stock}" Width="*"/>
+                    <DataGridTextColumn Header="Categoría" Binding="{Binding categoria}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Botones -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Content="Recargar" Margin="5" FontSize="10" Click="BtnRecargar_Click" Width="80" />
+                <Button Content="Limpiar" Margin="5" FontSize="10" Click="BtnLimpiarTabla_Click" Width="80" />
+                <Button Content="Salir" Margin="5" FontSize="10" Click="BtnSalir_Click" Width="80" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
