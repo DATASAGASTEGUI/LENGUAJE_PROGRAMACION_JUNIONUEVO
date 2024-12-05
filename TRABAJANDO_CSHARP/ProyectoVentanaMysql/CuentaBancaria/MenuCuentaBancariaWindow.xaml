@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProyectoVentanaMysql.CuentaBancaria.MenuCuentaBancariaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoVentanaMysql.CuentaBancaria"
+        mc:Ignorable="d"
+        
+        
+        Title="Cuenta Bancaria"
+        FontFamily="Courier New" FontSize="13"
+        Height="180"
+        Width="400"
+        Icon="C:/LENGUAJE_PROGRAMACION/TRABAJANDO_CSHARP/cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <Button Content="Crear Cuenta Bancaria" Margin="5" Click="BtnCrearCuentaBancaria_Click" Width="250" />
+            <Button Content="Buscar Cuenta Bancaria" Margin="5" Click="BtnBuscarCuentaBancaria_Click" Width="250" />
+            <Button Content="Ingresar Dinero Cuenta Bancaria" Margin="5" Click="BtnIngresarDineroCuentaBancaria_Click" Width="250" />
+            <Button Content="Retirar Dinero Cuenta Bancaria" Margin="5" Click="BtnRetirarDineroCuentaBancaria_Click" Width="250" />
+            <Button Content="Salir" Margin="5" Click="BtnSalir_Click" Width="250" />
+        </StackPanel>
+    </Grid>
+</Window>

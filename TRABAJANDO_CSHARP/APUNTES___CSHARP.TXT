@@ -1,0 +1,4099 @@
+*****************************************
+***   MI PRIMER PROGRAMA HOLA MUNDO   ***
+*****************************************
+
+(1)
+
+using System; //Sólo usamos esta librería por lo tanto podemos quitar las otras. Si se resalta se usa
+/*
+using System.Collections.Generic;   //Si no se resalta no se usa
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+*/
+namespace HolaMundo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hola Mundo");
+            Console.Read(); //Evitar que se cierre la consola
+        }
+    }
+}
+
+********************************
+***   TIPOS DE COMENTARIOS   ***
+********************************
+
+/* Este es
+un comentario
+de varias
+líneas */
+
+// Este es un comentario de una sola línea
+
+/*
+* Esto es un comentario 1
+* Esto es un comentario 2
+* Esto es un comentario 3
+* Esto es un comentario 4
+*/
+
+/// <summary>
+/// Punto de entrada principal para la aplicación. Este es un comentario que se transforma en xml
+/// </summary>
+
+******************************
+***   OPERADORES LOGICOS   ***
+******************************
+
+| Operador  | Descripción                | Ejemplo                    | Resultado  |
+|-----------|----------------------------|----------------------------|------------|
+| &&        | AND lógico                 | true && false              | false      |
+| ||        | OR lógico                  | true || false              | true       |
+| !         | NOT lógico                 | !true                      | false      |
+
+*********************************************
+***   TIPOS DE DATOS PARA MIS VARIABLES   ***
+*********************************************
+
+        static void Main(string[] args)
+
+        {
+            string nombre = "Arturo";
+            int edad = 23;
+            float estatura1 = 1.72f;
+            double estatura2 = 1.72;
+            char sexo = 'H';
+            bool casado1 = false;
+            bool casado2 = true;
+
+            Console.WriteLine("Nombre  : " + nombre);
+            Console.WriteLine("Edad    : " + edad);
+            Console.WriteLine("Estatura: " + estatura1);
+            Console.WriteLine("Estatura: " + estatura2);
+            Console.WriteLine("Sexo    : " + sexo);
+            Console.WriteLine("Casado  : " + casado1);
+            Console.WriteLine("Casado  : " + casado2);
+            Console.Read();
+        }
+		
+**************************************************
+***   ENTRADA DE DISTINTOS TIPOS POR TECLADO   ***
+**************************************************
+
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número entero? ");
+        int entero = int.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese un número decimal? ");
+        double real = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese un carácter? ");
+        char caracter = char.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese una cadena? ");
+        string cadena = Console.ReadLine();
+
+        Console.Write("Ingrese un valor booleano (true/false)? ");
+        bool booleano = bool.Parse(Console.ReadLine());
+
+        Console.WriteLine("{0,6} {1,7} {2,8} {3,6} {4,8}", "ENTERO", "DECIMAL", "CARACTER", "CADENA", "BOOLEANO");
+        Console.WriteLine("{0,6} {1,7} {2,8} {3,6} {4,8}", "------", "-------", "--------", "------", "--------");
+        Console.WriteLine("{0,6} {1,7:0.00} {2,-8} {3,-6} {4,8}", entero, real, caracter, cadena, booleano);
+
+        Console.Read();
+    }
+}
+
+*********************
+***   EXCEPTION   ***
+*********************
+
+        static void Main(string[] args) 
+        {
+            int entero;
+            try
+            {
+                Console.Write("Ingrese un número entero: ");
+                entero = int.Parse(Console.ReadLine());
+                Console.WriteLine("El número entero ingresado es: " + entero);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Error: Se esperaba un número entero. \n" + e.Message);
+            }
+            Console.WriteLine("Continuar con el programa");
+            Console.Read();
+        }
+		
+********************************************
+***   SIGNIFICADO DEL SIMBOLO ARROBA(@)  ***
+********************************************
+
+El símbolo @ antes de una cadena en C# se llama "verbatim string literal". Cuando se usa, indica al compilador que la cadena debe interpretarse literalmente, lo que significa que los caracteres de escape dentro de la cadena no se interpretarán. Esto es útil cuando necesitas escribir rutas de archivo, expresiones regulares o cadenas que contienen muchas barras invertidas.
+
+Por ejemplo, sin @, tendrías que escribir una ruta de archivo con barras invertidas dobles para escapar el carácter de barra invertida:
+
+string ruta = "C:\\Users\\Usuario\\Desktop\\archivo.txt";
+
+Pero con @, puedes escribir la misma ruta sin la necesidad de doblar las barras invertidas:
+
+string ruta = @"C:\Users\Usuario\Desktop\archivo.txt";
+
+Ambos producirán la misma cadena, pero la versión con @ es más legible y menos propensa a errores. Además, con @, puedes incluir caracteres especiales como comillas dobles (") directamente dentro de la cadena sin escaparlas.
+
+
+**********************************************
+***   CONVERTIR STRING A TIPOS NUMERICOS   ***
+**********************************************
+
+int result = Convert.ToInt32("123");
+double result = Convert.ToDouble("123.45");
+decimal result = Convert.ToDecimal("123.45");
+float result = Convert.ToSingle("123.45");
+short result = Convert.ToInt16("123");
+long result = Convert.ToInt64("123");
+byte result = Convert.ToByte("255");
+
+******************************************************
+***   CONVERTIR CUALQUIER TIPO NUMERICO A STRING   ***
+******************************************************
+
+string text = Convert.ToString(123);
+Console.WriteLine(text); // "123"
+
+*********************************
+***   CONVERTIR A TIPO BOOL   ***
+*********************************
+
+bool flag1 = Convert.ToBoolean("true");
+Console.WriteLine(flag1); // True
+bool flag2 = Convert.ToBoolean(123);
+Console.WriteLine(flag1); // True
+
+bool flag3 = Convert.ToBoolean("false");
+Console.WriteLine(flag3); // False
+bool flag4 = Convert.ToBoolean(0);
+Console.WriteLine(flag4); // False
+
+**********************************
+***   CONVERTIR A TIPO FECHA   ***
+**********************************
+
+DateTime date = Convert.ToDateTime("2024-12-20");
+Console.WriteLine(date); // 20/12/2024 00:00:00
+
+*************************************
+***   CONVERTIR A TIPO CARACTER   ***
+*************************************
+
+char character = Convert.ToChar("A");
+Console.WriteLine(character); //'A'
+
+**************************************************
+***   CONVERTIR NUMERO DECIMAL A HEXADECIMAL   ***
+**************************************************
+
+int num = 255;
+string hexString = Convert.ToString(num, 16);
+Console.WriteLine($"Hexadecimal: {hexString}");//ff
+
+******************************************
+***   CONVERSION ENTRE TIPOS CASTING   ***
+******************************************
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("EJEMPLO 1: FLOAT A INT");
+			Console.WriteLine("----------------------");
+            double a = 1.72;
+            int b = (int)a;
+            Console.WriteLine("a: " + a);
+            Console.WriteLine("b: " + b);
+
+            Console.WriteLine("EJEMPLO 2: INT A CHAR");
+			Console.WriteLine("---------------------");
+            int c = 65;
+            char d = (char)c;
+            Console.WriteLine("c: " + c);
+            Console.WriteLine("d: " + d);
+
+            Console.WriteLine("EJEMPLO 3: CHAR A INT");
+			Console.WriteLine("---------------------");
+            char e = 'Z';
+            int f = (int)e;
+            Console.WriteLine("e: " + e);
+            Console.WriteLine("f: " + f);
+            Console.Read();
+        }
+
+*******************************
+***   ERROR DE CONVERSION   ***
+*******************************
+
+try
+{
+    int num = Convert.ToInt32("ABC");
+}
+catch (FormatException)
+{
+    Console.WriteLine("Error en la conversión");
+}
+
+****************************************
+***   DIFERENCIA DOUBLE VS DECIMAL   ***
+****************************************
+
+--------------------------------------------------------------------------------
+double: Tiene  una  precisión  aproximada  de  15  a 16  dígitos significativos. 
+        Es menos preciso que decimal, especialmente cuando se trata de  cálculos 
+        financieros.
+
+decimal: Ofrece una mayor precisión (hasta 28-29 dígitos significativos), lo que
+         lo   hace   ideal   para   cálculos  financieros o situaciones donde la 
+         precisión es crítica.
+--------------------------------------------------------------------------------
+double doubleValue = 1.0 / 3.0;
+decimal decimalValue = 1.0m / 3.0m;
+float floatValue = 1.0f / 3.0f;
+
+Console.WriteLine($"double:  {doubleValue}"); //0.3333333333333333
+Console.WriteLine($"decimal: {decimalValue}");//0.3333333333333333333333333333
+Console.WriteLine($"float: {floatValue}");    //0,3333333
+--------------------------------------------------------------------------------
+double: Los valores literales de punto flotante por defecto son de tipo double.
+Ejemplo: 3.14
+decimal: Requiere el sufijo m o M para diferenciarse de double.
+Ejemplo: 3.14m
+--------------------------------------------------------------------------------
+
+***************************************************
+***   DIFERENCIA INT.PARSE VS CONVERT.TOINT32   ***
+***************************************************
+
+(1)
+
+string numero = "123";
+int resultado = int.Parse(numero); // resultado = 123
+
+(2)
+
+try
+{
+    string invalido = "abc";
+    int resultado = int.Parse(invalido); // Lanza FormatException
+}
+catch (FormatException e)
+{
+    Console.WriteLine("Error en la conversión");
+}
+
+(3)
+
+try
+{
+    string invalido = null;
+    int resultado = int.Parse(invalido); // Lanza ArgumentNullException
+}
+catch (ArgumentNullException e)
+{
+    Console.WriteLine("Error en la conversión");
+}
+
+(4)
+
+string numero = "123";
+int resultado = Convert.ToInt32(numero); // resultado = 123
+
+(5)
+
+string nulo = null;
+int resultado = Convert.ToInt32(nulo); // resultado = 0
+
+(6)
+
+double flotante = 123.45;
+int resultado = Convert.ToInt32(flotante); // resultado = 123
+
+(7)
+
+try
+{
+   string invalido = "ABC";
+   int resultado = Convert.ToInt32(invalido); // Lanza FormatException
+}
+catch (FormatException e)
+{
+   Console.WriteLine("Error en la conversión");
+}
+
+--------------------------------------------------------------------------------
+¿Cuándo usar cada uno?
+
+Usa int.Parse si:
+
+Sabes que estás trabajando con cadenas válidas.
+Quieres lanzar excepciones si el valor es null o no es válido.
+
+Usa Convert.ToInt32 si:
+
+Estás trabajando con varios tipos de datos.
+Quieres manejar valores null devolviendo 0.
+
+Ambos métodos son útiles, pero Convert.ToInt32 es más versátil.
+--------------------------------------------------------------------------------
+Diferencias Clave
+
+Aspecto						int.Parse						Convert.ToInt32
+
+Tipos aceptados				Solo cadenas (string).			Cadenas, números, objetos, y más.
+Manejo de null				Lanza ArgumentNullException.	Devuelve 0.
+Manejo de formato inválido	Lanza FormatException.			Lanza FormatException si no puede convertir.
+Punto flotante				No soporta directamente.		Redondea al entero más cercano.
+--------------------------------------------------------------------------------
+
+*****************************************
+***   OPERADOR CONDICIONAL TERNARIO   ***
+*****************************************
+
+(1)
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ASIGNACION CONDICIONAL DE VALOR CADENA A UNA VARIABLE");
+            Console.WriteLine("-----------------------------------------------------");
+
+            int edad = 20;
+            string estado;
+            estado = edad >= 18 ? "Adulto" : "Menor";
+            Console.WriteLine("Estado: " + estado); // Adulto
+            Console.Read();
+        }
+		
+(2)
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ASIGNACION CONDICIONAL DE VALOR NUMERICO A UNA VARIABLE");
+            Console.WriteLine("-------------------------------------------------------");
+
+            int a = 10, b = 5;
+            int mayor;
+            mayor = (a > b) ? a : b;
+            Console.WriteLine("Mayor: " + mayor); // 10
+            Console.Read();
+        }
+		
+(3)
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("IMPRIMIR EL VALOR MAXIMO DE DOS NUMEROS");
+            Console.WriteLine("----------------------------------------");
+
+            int x = 15, y = 20;
+            Console.WriteLine("El máximo es: " + ((x > y) ? x : y)); // 20
+            Console.Read();
+        }
+		
+*******************************************
+***   ESTRUCTURA CONDICIONAL MULTIPLE   ***
+*******************************************
+
+        static void Main(string[] args)
+        {
+            int num, v;
+            double val;
+            Console.Write("Ingrese valor de num? ");
+            num = int.Parse(Console.ReadLine());
+            Console.Write("Ingrese valor v? ");
+            v = int.Parse(Console.ReadLine());
+
+            switch (num)
+            {
+                case 1:
+                    val = 100 * v;
+                    break;
+                case 2:
+                    val = Math.Pow(100, v);
+                    break;
+                case 3:
+                    val = 100 / (double)v;
+                    break;
+                default:
+                    val = 0;
+                    break;
+            }
+            Console.WriteLine("Val: " + val.ToString("F2"));
+            Console.Read();
+        }		
+
+****************************
+***   BLOQUE DE CODIGO   ***
+****************************
+
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8; // Establece la codificación de caracteres de la consola a UTF-8
+
+            {
+                Console.WriteLine("IMPRIMIR EL VALOR MAXIMO DE DOS NUMEROS");
+                Console.WriteLine("----------------------------------------");
+                int a = 15, b = 20;
+                Console.WriteLine("El máximo es: " + ((a > b) ? a : b)); // 20
+            }
+
+            {
+                Console.WriteLine("ASIGNACION CONDICIONAL DE VALOR NUMERICO A UNA VARIABLE");
+                Console.WriteLine("-------------------------------------------------------");
+                int a = 10, b = 5;
+                int mayor;
+                mayor = (a > b) ? a : b;
+                Console.WriteLine("Mayor: " + mayor); // 10
+            }
+            Console.Read();
+        }
+		
+***************************************
+***   FUNCION MATEMATICA POTENCIA   ***
+***************************************
+
+        static void Main(string[] args)
+        {
+            int base_x = 2;
+            int exponente = 3;
+            double potencia = Math.Pow(base_x, exponente);
+            Console.WriteLine("Potencia dos al cubo: " + potencia.ToString("F2"));
+            Console.Read();
+        }
+		
+********************************************
+***   FUNCION REDONDEAR NUMEROS REALES   ***
+********************************************
+
+double numero = 3.4567;
+double redondeado = Math.Round(numero, 2); // Redondear a 2 decimales
+Console.WriteLine(redondeado); // Output: 3.46
+
+****************************
+***   NUMERO ALEATORIO   ***
+****************************
+
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rnd = new Random(); // Crear una instancia de Random
+            for (int i = 1; i <= 10; i++)
+            {
+                int aleatorio = rnd.Next(1, 7); // Generar un número aleatorio entre 1 y 6
+                Console.Write(aleatorio + " ");
+            }
+            Console.Read();
+        }
+    }
+
+****************
+***   0015   ***   BUCLE: WHILE, DO ... WHILE, FOR
+****************
+
+        static void Main(string[] args)
+        {
+
+
+            Console.WriteLine("INGRESAR N NUMEROS HASTA QUE SEA CERO. AL TERMINAR MOSTRAR LA SUMA DE LOS NUMEROS");
+            Console.WriteLine("---------------------------------------------------------------------------------");
+
+            Console.WriteLine("(1) DO...WHILE");
+            Console.WriteLine("--------------");
+            {
+                int entero, suma = 0;
+                do
+                {
+                    Console.Write("Ingresar número entero? ");
+                    entero = int.Parse(Console.ReadLine());
+                    suma += entero;
+                } while (entero != 0);                  //VERDADERO REPITE,FALSO TERMINA
+                Console.WriteLine("Suma: " + suma);
+            }
+
+            Console.WriteLine("(2) WHILE");
+            Console.WriteLine("---------");
+
+            {
+                int entero, suma = 0;
+                Console.Write("Ingresar número entero? ");
+                entero = int.Parse(Console.ReadLine()); 
+                while (entero != 0)                     //VERDADERO REPITE,FALSO TERMINA
+                { 
+                    suma += entero;
+                    Console.Write("Ingresar número entero? ");
+                    entero = int.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Suma: " + suma);
+            }
+
+            Console.WriteLine("(3) FOR");
+            Console.WriteLine("-------");
+
+            {
+                int entero, suma = 0;
+                Console.Write("Ingresar número entero? ");
+                entero = int.Parse(Console.ReadLine());
+                for (; entero != 0;)                    //VERDADERO REPITE,FALSO TERMINA
+                { 
+                    suma += entero;
+                    Console.Write("Ingresar número entero? ");
+                    entero = int.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Suma: " + suma);
+            }
+
+            Console.Read();
+
+        }
+
+*********************
+***   BUCLE FOR   ***
+*********************
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("BUCLE FOR: SERIE 1 2 3 4 5 6 7 8 9 10 (INCREMENTO DE 1 EN 1)");
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("BUCLE FOR: SERIE 1 3 5 7 (INCREMENTO DE 2 EN 2)");
+            for (int i = 1; i <= 7; i += 2)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("BUCLE FOR: IMPRIMIR EL ALFABETO (LETRA)");
+            for (int i = 65; i <= 90; i++)
+            {
+                Console.Write((char)i + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("BUCLE FOR: IMPRIMIR EL ALFABETO (CODIGO)");
+            for (char letra = 'A'; letra <= 'Z'; letra++)
+            {
+                Console.Write((int)letra + " ");
+            }
+            Console.Read();
+        }
+		
+***********************************************
+***   MENU CON CLASES EN UN MISMO ARCHIVO   ***
+***********************************************
+
+using System;
+
+namespace menu_01
+{
+    class Principal
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Menu.Cls();
+                Console.WriteLine("MENU");
+                Console.WriteLine("----");
+                Console.WriteLine("[1] OPCION 1");
+                Console.WriteLine("[2] OPCION 2");
+                Console.WriteLine("[3] OPCION 3");
+                Console.WriteLine("[4] OPCION 4");
+                Console.WriteLine("[5] OPCION 5");
+                Console.WriteLine("[6] OPCION 6");
+                Console.WriteLine("[7] OPCION 7");
+                Console.WriteLine("[8] OPCION 8");
+                Console.WriteLine("[9] OPCION 9");
+                Console.WriteLine("[0] SALIR");
+
+                Console.Write("\nINGRESE OPCION? ");
+                string opcion = Console.ReadLine();
+
+                switch (opcion)
+                {
+                    case "1":
+                        Menu.Cls();
+                        Controlador1();
+                        Menu.Pause();
+                        break;
+                    case "2":
+                        Menu.Cls();
+                        Controlador2();
+                        Menu.Pause();
+                        break;
+                    case "3":
+                        Menu.Cls();
+                        Controlador3();
+                        Menu.Pause();
+                        break;
+                    case "4":
+                        Menu.Cls();
+                        Controlador4();
+                        Menu.Pause();
+                        break;
+                    case "5":
+                        Menu.Cls();
+                        Controlador5();
+                        Menu.Pause();
+                        break;
+                    case "6":
+                        Menu.Cls();
+                        Controlador6();
+                        Menu.Pause();
+                        break;
+                    case "7":
+                        Menu.Cls();
+                        Controlador7();
+                        Menu.Pause();
+                        break;
+                    case "8":
+                        Menu.Cls();
+                        Controlador8();
+                        Menu.Pause();
+                        break;
+                    case "9":
+                        Menu.Cls();
+                        Controlador9();
+                        Menu.Pause();
+                        break;
+                    case "0":
+                        Menu.Cls();
+                        Console.WriteLine("GRACIAS POR SU VISITA");
+                        Menu.Pause();
+                        Menu.Cls();
+                        Environment.Exit(0);
+                        break;
+                }
+            } while (true);
+        }
+        public static void Controlador1()
+        {
+            Console.WriteLine("[1] OPCION 1");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador2()
+        {
+            Console.WriteLine("[2] OPCION 2");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador3()
+        {
+            Console.WriteLine("[3] OPCION 3");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador4()
+        {
+            Console.WriteLine("[4] OPCION 4");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador5()
+        {
+            Console.WriteLine("[5] OPCION 5");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador6()
+        {
+            Console.WriteLine("[6] OPCION 6");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador7()
+        {
+            Console.WriteLine("[7] OPCION 7");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador8()
+        {
+            Console.WriteLine("[8] OPCION 8");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador9()
+        {
+            Console.WriteLine("[9] OPCION 9");
+            Console.WriteLine("------------");
+        }
+
+    }
+
+    class Menu
+    {
+        public static void Cls()
+        {
+            Console.Clear();
+        }
+
+        public static void Pause()
+        {
+            Console.Write("Presione Enter para continuar...");
+            Console.ReadLine();
+        }
+    }
+}
+
+*************************************************
+***   MENU CON CLASES EN DISTINTOS ARCHIVOS   ***
+*************************************************
+
+(1) Principal.cs
+
+using System;
+
+namespace menu_01
+{
+    class Principal
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Menu.Cls();
+                Console.WriteLine("MENU");
+                Console.WriteLine("----");
+                Console.WriteLine("[1] OPCION 1");
+                Console.WriteLine("[2] OPCION 2");
+                Console.WriteLine("[3] OPCION 3");
+                Console.WriteLine("[4] OPCION 4");
+                Console.WriteLine("[5] OPCION 5");
+                Console.WriteLine("[6] OPCION 6");
+                Console.WriteLine("[7] OPCION 7");
+                Console.WriteLine("[8] OPCION 8");
+                Console.WriteLine("[9] OPCION 9");
+                Console.WriteLine("[0] SALIR");
+
+                Console.Write("\nINGRESE OPCION? ");
+                string opcion = Console.ReadLine();
+
+                switch (opcion)
+                {
+                    case "1":
+                        Menu.Cls();
+                        Controlador1();
+                        Menu.Pause();
+                        break;
+                    case "2":
+                        Menu.Cls();
+                        Controlador2();
+                        Menu.Pause();
+                        break;
+                    case "3":
+                        Menu.Cls();
+                        Controlador3();
+                        Menu.Pause();
+                        break;
+                    case "4":
+                        Menu.Cls();
+                        Controlador4();
+                        Menu.Pause();
+                        break;
+                    case "5":
+                        Menu.Cls();
+                        Controlador5();
+                        Menu.Pause();
+                        break;
+                    case "6":
+                        Menu.Cls();
+                        Controlador6();
+                        Menu.Pause();
+                        break;
+                    case "7":
+                        Menu.Cls();
+                        Controlador7();
+                        Menu.Pause();
+                        break;
+                    case "8":
+                        Menu.Cls();
+                        Controlador8();
+                        Menu.Pause();
+                        break;
+                    case "9":
+                        Menu.Cls();
+                        Controlador9();
+                        Menu.Pause();
+                        break;
+                    case "0":
+                        Menu.Cls();
+                        Console.WriteLine("GRACIAS POR SU VISITA");
+                        Menu.Pause();
+                        Menu.Cls();
+                        Environment.Exit(0);
+                        break;
+                }
+            } while (true);
+        }
+        public static void Controlador1()
+        {
+            Console.WriteLine("[1] OPCION 1");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador2()
+        {
+            Console.WriteLine("[2] OPCION 2");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador3()
+        {
+            Console.WriteLine("[3] OPCION 3");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador4()
+        {
+            Console.WriteLine("[4] OPCION 4");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador5()
+        {
+            Console.WriteLine("[5] OPCION 5");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador6()
+        {
+            Console.WriteLine("[6] OPCION 6");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador7()
+        {
+            Console.WriteLine("[7] OPCION 7");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador8()
+        {
+            Console.WriteLine("[8] OPCION 8");
+            Console.WriteLine("------------");
+        }
+
+        public static void Controlador9()
+        {
+            Console.WriteLine("[9] OPCION 9");
+            Console.WriteLine("------------");
+        }
+
+    }
+}
+
+(2) Menu.cs
+
+using System;
+
+namespace menu_01
+{
+    class Menu
+    {
+        public static void Cls()
+        {
+            Console.Clear();
+        }
+
+        public static void Pause()
+        {
+            Console.Write("Presione Enter para continuar...");
+            Console.ReadLine();
+        }
+    }
+}
+
+*************************
+***   CREAR OBJETOS   ***
+*************************
+
+--------------------------------------------------------------------------------
+En C#, crear un objeto implica instanciar una clase utilizando la palabra clave new.
+--------------------------------------------------------------------------------
+1. Definir una Clase
+
+Primero, necesitas definir una clase que describa el objeto. La clase puede tener atributos (campos), propiedades, y métodos.
+
+public class Persona
+{
+    // Atributos
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+
+    // Constructor
+    public Persona(string nombre, int edad)
+    {
+        Nombre = nombre;
+        Edad = edad;
+    }
+
+    // Método
+    public void Saludar()
+    {
+        Console.WriteLine($"Hola, me llamo {Nombre} y tengo {Edad} años.");
+    }
+}
+--------------------------------------------------------------------------------
+2. Crear un Objeto
+Para crear un objeto, utiliza la palabra clave new y llama al constructor de la clase.
+
+class Program
+{
+    static void Main()
+    {
+        // Crear un objeto de la clase Persona
+        Persona persona = new Persona("Carlos", 25);
+
+        // Acceder a sus propiedades
+        Console.WriteLine($"Nombre: {persona.Nombre}");
+        Console.WriteLine($"Edad: {persona.Edad}");
+
+        // Llamar a un método
+        persona.Saludar();
+    }
+}
+--------------------------------------------------------------------------------
+3. Crear Objetos con un Constructor Vacío
+
+Si la clase tiene un constructor vacío (por defecto o definido explícitamente), 
+puedes crear un objeto y asignar sus valores posteriormente.
+
+public class Persona
+{
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+
+    public Persona() { } // Constructor vacío
+}
+
+class Program
+{
+    static void Main()
+    {
+        Persona persona = new Persona();
+        persona.Nombre = "Ana";
+        persona.Edad = 30;
+
+        Console.WriteLine($"Nombre: {persona.Nombre}");
+        Console.WriteLine($"Edad: {persona.Edad}");
+    }
+}
+
+--------------------------------------------------------------------------------
+4. Crear Objetos Anónimos
+
+En algunos casos, puedes usar objetos anónimos cuando no necesitas una clase explícita.
+
+var persona = new { Nombre = "Luis", Edad = 28 };
+
+Console.WriteLine($"Nombre: {persona.Nombre}");
+Console.WriteLine($"Edad: {persona.Edad}");
+
+--------------------------------------------------------------------------------
+5. Crear Objetos en Colecciones
+
+Puedes crear múltiples objetos y almacenarlos en colecciones como listas.
+
+using System;
+using System.Collections.Generic;
+
+public class Persona
+{
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+
+    public Persona(string nombre, int edad)
+    {
+        Nombre = nombre;
+        Edad = edad;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Crear una lista de objetos
+        List<Persona> personas = new List<Persona>
+        {
+            new Persona("Carlos", 25),
+            new Persona("Ana", 30),
+            new Persona("Luis", 28)
+        };
+
+        // Recorrer la lista e imprimir los detalles
+        foreach (var persona in personas)
+        {
+            Console.WriteLine($"Nombre: {persona.Nombre}, Edad: {persona.Edad}");
+        }
+    }
+}
+
+***********************
+***   DICCIONARIO   ***
+***********************
+
+--------------------------------------------------------------------------------
+1. Crear un Diccionario
+--------------------------------------------------------------------------------
+En C#, puedes usar la clase Dictionary<TKey, TValue> del espacio de nombres System.Collections.Generic.
+
+csharp
+Copiar código
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Crear un diccionario con clave tipo string y valor tipo int
+        Dictionary<string, int> diccionario = new Dictionary<string, int>();
+    }
+}
+--------------------------------------------------------------------------------
+2. Operaciones Básicas con Diccionarios
+--------------------------------------------------------------------------------
+a. Agregar elementos
+
+Usa el método Add para añadir pares clave-valor al diccionario.
+
+diccionario.Add("Clave1", 100);
+diccionario.Add("Clave2", 200);
+
+También puedes usar el índice directamente:
+
+diccionario["Clave3"] = 300; // Si la clave no existe, se añade
+--------------------------------------------------------------------------------
+b. Acceder a elementos
+
+Puedes acceder al valor asociado a una clave usando el índice:
+
+int valor = diccionario["Clave1"];
+
+Console.WriteLine(valor); // Imprime: 100
+
+Para evitar excepciones, verifica primero si la clave existe:
+
+if (diccionario.ContainsKey("Clave4"))
+{
+    Console.WriteLine(diccionario["Clave4"]);
+}
+else
+{
+    Console.WriteLine("La clave no existe.");
+}
+--------------------------------------------------------------------------------
+c. Modificar valores
+
+Si ya existe una clave, puedes actualizar su valor:
+
+diccionario["Clave1"] = 500; // Actualiza el valor de 'Clave1' a 500
+--------------------------------------------------------------------------------
+d. Eliminar elementos
+
+Usa el método Remove para eliminar un elemento por su clave:
+
+diccionario.Remove("Clave2"); // Elimina 'Clave2'
+--------------------------------------------------------------------------------
+e. Verificar existencia
+
+Verificar si una clave existe:
+
+bool existeClave = diccionario.ContainsKey("Clave1");
+Console.WriteLine(existeClave); // True o False
+
+Verificar si un valor existe:
+
+bool existeValor = diccionario.ContainsValue(100);
+Console.WriteLine(existeValor); // True o False
+--------------------------------------------------------------------------------
+f. Recorrer el diccionario
+
+Puedes usar un foreach para recorrer las claves y valores:
+
+foreach (KeyValuePair<string, int> elemento in diccionario)
+{
+    Console.WriteLine($"Clave: {elemento.Key}, Valor: {elemento.Value}");
+}
+
+Si solo necesitas las claves o los valores:
+
+// Recorrer claves
+foreach (string clave in diccionario.Keys)
+{
+    Console.WriteLine($"Clave: {clave}");
+}
+
+// Recorrer valores
+foreach (int valor in diccionario.Values)
+{
+    Console.WriteLine($"Valor: {valor}");
+}
+--------------------------------------------------------------------------------
+g. Limpiar el diccionario
+
+Usa el método Clear para eliminar todos los elementos:
+
+diccionario.Clear();
+--------------------------------------------------------------------------------
+3. Características Adicionales
+--------------------------------------------------------------------------------
+a. Tamaño del diccionario
+
+Obtén el número de elementos con la propiedad Count:
+
+Console.WriteLine(diccionario.Count); // Muestra la cantidad de pares clave-valor
+--------------------------------------------------------------------------------
+b. Acceso seguro
+
+Usa TryGetValue para obtener un valor de manera segura:
+
+if (diccionario.TryGetValue("Clave1", out int valorEncontrado))
+{
+    Console.WriteLine($"Valor encontrado: {valorEncontrado}");
+}
+else
+{
+    Console.WriteLine("Clave no encontrada.");
+}
+--------------------------------------------------------------------------------
+c. Orden de los elementos
+
+Los elementos de un diccionario no tienen un orden garantizado. Si necesitas un orden, usa una estructura como SortedDictionary.
+
+Un SortedDictionary<TKey, TValue> en C# es similar a un Dictionary, pero organiza automáticamente las claves en orden ascendente. 
+Esto es útil cuando necesitas mantener las claves ordenadas mientras realizas operaciones con el diccionario.
+
+Ejemplo de Uso de SortedDictionary
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Crear un SortedDictionary con claves string y valores int
+        SortedDictionary<string, int> sortedDiccionario = new SortedDictionary<string, int>();
+
+        // Agregar elementos al SortedDictionary
+        sortedDiccionario.Add("Perro", 3);
+        sortedDiccionario.Add("Gato", 5);
+        sortedDiccionario.Add("Conejo", 2);
+        sortedDiccionario.Add("Ave", 7);
+
+        // Mostrar los elementos en orden ascendente según la clave
+        Console.WriteLine("Elementos ordenados por clave:");
+        foreach (KeyValuePair<string, int> elemento in sortedDiccionario)
+        {
+            Console.WriteLine($"Clave: {elemento.Key}, Valor: {elemento.Value}");
+        }
+
+        // Acceder a un valor mediante su clave
+        Console.WriteLine($"\nValor asociado a 'Gato': {sortedDiccionario["Gato"]}");
+
+        // Verificar si existe una clave
+        string claveBuscar = "Perro";
+        if (sortedDiccionario.ContainsKey(claveBuscar))
+        {
+            Console.WriteLine($"\nLa clave '{claveBuscar}' existe en el SortedDictionary.");
+        }
+        else
+        {
+            Console.WriteLine($"\nLa clave '{claveBuscar}' no existe.");
+        }
+
+        // Eliminar un elemento
+        sortedDiccionario.Remove("Conejo");
+        Console.WriteLine("\nDespués de eliminar 'Conejo':");
+        foreach (var elemento in sortedDiccionario)
+        {
+            Console.WriteLine($"Clave: {elemento.Key}, Valor: {elemento.Value}");
+        }
+
+        // Obtener solo las claves o los valores
+        Console.WriteLine("\nClaves:");
+        foreach (string clave in sortedDiccionario.Keys)
+        {
+            Console.WriteLine(clave);
+        }
+
+        Console.WriteLine("\nValores:");
+        foreach (int valor in sortedDiccionario.Values)
+        {
+            Console.WriteLine(valor);
+        }
+
+        // Limpiar todos los elementos
+        sortedDiccionario.Clear();
+        Console.WriteLine($"\nCantidad de elementos después de limpiar: {sortedDiccionario.Count}");
+    }
+}
+--------------------------------------------------------------------------------
+Explicación del Código
+
+Crear el SortedDictionary:
+
+SortedDictionary<string, int> sortedDiccionario = new SortedDictionary<string, int>();
+
+Define un diccionario que mantiene sus claves en orden ascendente.
+
+Agregar Elementos: Los elementos se agregan igual que en un Dictionary. Las claves se ordenan automáticamente.
+
+Acceder a Elementos: Usa el índice para acceder al valor asociado a una clave específica.
+
+Recorrer el Diccionario: El bucle foreach recorre los elementos en orden ascendente de las claves.
+
+Verificar Existencia: Usa ContainsKey para comprobar si una clave existe.
+
+Eliminar Elementos: Usa Remove para eliminar un par clave-valor.
+
+Obtener Claves o Valores: Puedes iterar solo las claves con Keys o los valores con Values.
+
+Limpiar el Diccionario: Usa el método Clear para vaciar el diccionario.
+
+Salida Esperada
+
+Elementos ordenados por clave:
+
+Clave: Ave, Valor: 7
+Clave: Conejo, Valor: 2
+Clave: Gato, Valor: 5
+Clave: Perro, Valor: 3
+
+Valor asociado a 'Gato': 5
+
+La clave 'Perro' existe en el SortedDictionary.
+
+Después de eliminar 'Conejo':
+
+Clave: Ave, Valor: 7
+Clave: Gato, Valor: 5
+Clave: Perro, Valor: 3
+
+Claves:
+Ave
+Gato
+Perro
+
+Valores:
+
+7
+5
+3
+
+Cantidad de elementos después de limpiar: 0
+--------------------------------------------------------------------------------
+Características Importantes
+
+Las claves se mantienen ordenadas automáticamente en orden ascendente.
+Es más lento que un Dictionary en algunas operaciones debido al coste de mantener el orden.
+Si necesitas un orden descendente, puedes usar SortedDictionary con un comparador 
+personalizado o manipular las claves al mostrarlas.
+--------------------------------------------------------------------------------
+Ejemplo Completo
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Crear el diccionario
+        Dictionary<string, int> diccionario = new Dictionary<string, int>();
+
+        // Agregar elementos
+        diccionario.Add("Uno", 1);
+        diccionario.Add("Dos", 2);
+        diccionario["Tres"] = 3;
+
+        // Acceder a elementos
+        Console.WriteLine(diccionario["Uno"]); // Imprime: 1
+
+        // Modificar valores
+        diccionario["Uno"] = 10;
+
+        // Recorrer el diccionario
+        foreach (var elemento in diccionario)
+        {
+            Console.WriteLine($"Clave: {elemento.Key}, Valor: {elemento.Value}");
+        }
+
+        // Eliminar un elemento
+        diccionario.Remove("Dos");
+
+        // Verificar existencia
+        Console.WriteLine(diccionario.ContainsKey("Dos")); // False
+
+        // Limpiar el diccionario
+        diccionario.Clear();
+        Console.WriteLine(diccionario.Count); // Imprime: 0
+    }
+}
+
+*****************************************
+***   ARRAY UNIDIMENSIONAL (VECTOR)   ***
+*****************************************
+
+(1)
+
+        static void Main(string[] args)
+        {
+            int[] entero = { 1, 2, 3, 4, 5 };
+            float[] puntoflotante = { 1.71f, 1.72f, 1.73f, 1.74f, 1.75f };
+            char[] caracter = { 'A', 'B', 'C', 'D', 'E' };
+            string[] cadena = { "Arturo", "Miguel", "María", "Carmen", "Luis" };
+            bool[] logico = { false, true, false, true, false };
+
+            int size_entero = entero.Length;
+            int size_puntoflotante = puntoflotante.Length;
+            int size_caracter = caracter.Length;
+            int size_cadena = cadena.Length;
+            int size_logico = logico.Length;
+
+            for (int i = 0; i < size_entero; i++)
+            {
+                Console.Write(entero[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < size_puntoflotante; i++)
+            {
+                Console.Write(puntoflotante[i].ToString("F2") + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < size_caracter; i++)
+            {
+                Console.Write(caracter[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < size_cadena; i++)
+            {
+                Console.Write(cadena[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < size_logico; i++)
+            {
+                Console.Write(logico[i] ? "true " : "false ");
+            }
+            Console.Read();
+        }
+		
+(2)
+
+       static void Main(string[] args)
+       {
+           int n;
+           Console.Write("Ingrese el tamaño del array: ");
+           n = int.Parse(Console.ReadLine());
+
+           // Asignar memoria para el array
+           int[] array = new int[n];
+
+           // Inicializar el array
+           for (int i = 0; i < n; i++)
+           {
+               array[i] = i + 1;
+           }
+
+           // Imprimir el array
+           Console.Write("Array generado: ");
+           foreach (int num in array)
+           {
+               Console.Write(num + " ");
+           }
+
+           Console.Read();
+       }
+	   
+(3)
+
+        static void Main(string[] args)
+        {
+            int n;
+            Console.Write("Ingrese el tamaño del array: ");
+            n = int.Parse(Console.ReadLine());
+
+            // Asignar memoria para el array
+            int[] array = new int[n];
+
+            // Inicializar el array
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Ingrese numero {i + 1}: ");
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            // Imprimir el array
+            Console.Write("Array generado: ");
+            foreach (int num in array)
+            {
+                Console.Write(num + " ");
+            }
+            Console.Read();
+        }
+		
+(4)
+
+        static void Main(string[] args)
+        {
+            int n;
+
+            Random rnd = new Random();
+
+            Console.Write("Ingrese el tamaño del array: ");
+            n = int.Parse(Console.ReadLine());
+
+            // Asignar memoria para el array
+            int[] array = new int[n];
+
+            // Inicializar el array
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = rnd.Next(1, 7);
+            }
+
+            // Imprimir el array
+            Console.Write("Array generado: ");
+            foreach (int num in array)
+            {
+                Console.Write(num + " ");
+            }
+            Console.Read();
+
+        }
+
+***********************
+***   COLECCIONES   ***
+***********************
+
+--------------------------------------------------------------------------------
+En C#, las colecciones son estructuras de datos que nos permiten almacenar y 
+gestionar grupos de objetos. Estas se encuentran en el espacio de nombres 
+System.Collections y System.Collections.Generic. Hay dos categorías principales:
+
+Colecciones no genéricas: Manejan objetos como object.
+
+Colecciones genéricas: Manejan datos con tipos específicos, lo que mejora la 
+seguridad y el rendimiento.
+--------------------------------------------------------------------------------
+1. Colecciones No Genéricas
+
+Estas colecciones almacenan objetos de tipo object. Aunque son flexibles, tienen 
+desventajas como la necesidad de conversión (boxing/unboxing) que puede reducir 
+el rendimiento.
+--------------------------------------------------------------------------------
+Ejemplo 1.1: ArrayList
+
+ArrayList almacena cualquier tipo de objeto y su tamaño es dinámico.
+
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main()
+    {
+        ArrayList lista = new ArrayList();
+        lista.Add(10);
+        lista.Add("Hola");
+        lista.Add(3.14);
+
+        foreach (var item in lista)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
+
+Uso: Útil para almacenar objetos de diferentes tipos, pero se recomienda evitarlo en favor de colecciones genéricas.
+--------------------------------------------------------------------------------
+Ejemplo 1.2: Hashtable
+
+Hashtable almacena pares clave-valor, donde la clave es única.
+
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main()
+    {
+        Hashtable tabla = new Hashtable();
+        tabla.Add("ID", 101);
+        tabla.Add("Nombre", "Carlos");
+        tabla.Add("Edad", 25);
+
+        foreach (DictionaryEntry item in tabla)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
+
+Uso: Para almacenar datos en pares clave-valor. Sin embargo, utiliza tipos object, 
+por lo que se prefieren genéricos como Dictionary.
+--------------------------------------------------------------------------------
+2. Colecciones Genéricas
+
+Son más eficientes y seguras que las colecciones no genéricas. Estas utilizan tipos específicos.
+--------------------------------------------------------------------------------
+Ejemplo 2.1: List<T>
+
+List<T> es una lista genérica dinámica.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numeros = new List<int> { 1, 2, 3 };
+        numeros.Add(4);
+        numeros.Remove(2);
+
+        foreach (int num in numeros)
+        {
+            Console.WriteLine(num);
+        }
+    }
+}
+
+Uso: Para almacenar listas de datos del mismo tipo con operaciones flexibles como agregar, eliminar, y buscar.
+--------------------------------------------------------------------------------
+Ejemplo 2.2: Dictionary<TKey, TValue>
+
+Dictionary es una colección genérica de pares clave-valor.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<string, int> estudiantes = new Dictionary<string, int>
+        {
+            { "Ana", 20 },
+            { "Luis", 22 }
+        };
+        estudiantes.Add("Juan", 21);
+
+        foreach (var item in estudiantes)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
+
+Uso: Ideal para búsquedas rápidas basadas en claves únicas.
+--------------------------------------------------------------------------------
+Ejemplo 2.3: Queue<T>
+
+Queue<T> es una cola FIFO (Primero en Entrar, Primero en Salir).
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Queue<string> cola = new Queue<string>();
+        cola.Enqueue("Primero");
+        cola.Enqueue("Segundo");
+        cola.Enqueue("Tercero");
+
+        while (cola.Count > 0)
+        {
+            Console.WriteLine(cola.Dequeue());
+        }
+    }
+}
+
+Uso: Para procesar datos en el orden en que fueron agregados, como un sistema de tickets.
+--------------------------------------------------------------------------------
+Ejemplo 2.4: Stack<T>
+
+Stack<T> es una pila LIFO (Último en Entrar, Primero en Salir).
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Stack<string> pila = new Stack<string>();
+        pila.Push("Primero");
+        pila.Push("Segundo");
+        pila.Push("Tercero");
+
+        while (pila.Count > 0)
+        {
+            Console.WriteLine(pila.Pop());
+        }
+    }
+}
+
+Uso: Útil para problemas como el manejo de historial o deshacer cambios.
+--------------------------------------------------------------------------------
+Ejemplo 2.5: HashSet<T>
+
+HashSet<T> es una colección que almacena elementos únicos.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        HashSet<int> conjunto = new HashSet<int> { 1, 2, 3, 1 };
+        conjunto.Add(4);
+
+        foreach (int num in conjunto)
+        {
+            Console.WriteLine(num);
+        }
+    }
+}
+
+Uso: Para asegurar que los datos no tengan duplicados.
+--------------------------------------------------------------------------------
+3. Colecciones Concurrentes
+
+En aplicaciones multihilo, usamos colecciones concurrentes.
+--------------------------------------------------------------------------------
+Ejemplo 3.1: ConcurrentDictionary
+
+Una versión segura para hilos de Dictionary.
+
+using System;
+using System.Collections.Concurrent;
+
+class Program
+{
+    static void Main()
+    {
+        var diccionario = new ConcurrentDictionary<string, int>();
+        diccionario.TryAdd("A", 1);
+        diccionario.TryAdd("B", 2);
+
+        foreach (var item in diccionario)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Resumen de Uso
+
+Colección	Uso Principal
+ArrayList	Objetos de diferentes tipos (obsoleto).
+Hashtable	Pares clave-valor (obsoleto).
+List<T>	Listas dinámicas genéricas.
+Dictionary<TKey, TValue>	Pares clave-valor genéricos.
+Queue<T>	Cola FIFO.
+Stack<T>	Pila LIFO.
+HashSet<T>	Elementos únicos.
+ConcurrentDictionary	Seguridad en aplicaciones multihilo.
+--------------------------------------------------------------------------------
+Ejemplos Avanzados de Colecciones en C#
+
+Aquí tienes ejemplos avanzados y prácticos para usar las colecciones de C# en situaciones reales.
+
+Ejemplo 1: Uso de List<T> con LINQ
+--------------------------------------------------------------------------------
+Caso de Uso: Filtrar, ordenar y agrupar una lista de objetos.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    class Persona
+    {
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
+    }
+
+    static void Main()
+    {
+        List<Persona> personas = new List<Persona>
+        {
+            new Persona { Nombre = "Carlos", Edad = 30 },
+            new Persona { Nombre = "Ana", Edad = 22 },
+            new Persona { Nombre = "Luis", Edad = 30 },
+            new Persona { Nombre = "Maria", Edad = 22 },
+            new Persona { Nombre = "Pedro", Edad = 40 }
+        };
+
+        // Filtrar personas mayores de 25 años
+        var mayores = personas.Where(p => p.Edad > 25);
+
+        // Ordenar por edad
+        var ordenadas = personas.OrderBy(p => p.Edad);
+
+        // Agrupar por edad
+        var grupos = personas.GroupBy(p => p.Edad);
+
+        Console.WriteLine("Mayores de 25:");
+        foreach (var p in mayores)
+            Console.WriteLine($"{p.Nombre}, {p.Edad} años");
+
+        Console.WriteLine("\nOrdenadas por edad:");
+        foreach (var p in ordenadas)
+            Console.WriteLine($"{p.Nombre}, {p.Edad} años");
+
+        Console.WriteLine("\nAgrupadas por edad:");
+        foreach (var grupo in grupos)
+        {
+            Console.WriteLine($"Edad: {grupo.Key}");
+            foreach (var p in grupo)
+                Console.WriteLine($" - {p.Nombre}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Ejemplo 2: Uso Avanzado de Dictionary<TKey, TValue>
+
+Caso de Uso: Contar la frecuencia de palabras en un texto.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string texto = "C# es un lenguaje de programación. C# es poderoso y flexible.";
+        string[] palabras = texto.ToLower().Split(new[] { ' ', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+        Dictionary<string, int> frecuencia = new Dictionary<string, int>();
+
+        foreach (var palabra in palabras)
+        {
+            if (frecuencia.ContainsKey(palabra))
+                frecuencia[palabra]++;
+            else
+                frecuencia[palabra] = 1;
+        }
+
+        Console.WriteLine("Frecuencia de palabras:");
+        foreach (var item in frecuencia)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Ejemplo 3: Uso de Queue<T> y Stack<T> en Algoritmos
+--------------------------------------------------------------------------------
+Cola (FIFO): Simular un sistema de turnos.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Queue<string> cola = new Queue<string>();
+        cola.Enqueue("Cliente 1");
+        cola.Enqueue("Cliente 2");
+        cola.Enqueue("Cliente 3");
+
+        Console.WriteLine("Atendiendo clientes:");
+        while (cola.Count > 0)
+        {
+            Console.WriteLine($"Atendiendo: {cola.Dequeue()}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Pila (LIFO): Simular operaciones deshacer/rehacer.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Stack<string> pila = new Stack<string>();
+        pila.Push("Acción 1");
+        pila.Push("Acción 2");
+        pila.Push("Acción 3");
+
+        Console.WriteLine("Deshacer acciones:");
+        while (pila.Count > 0)
+        {
+            Console.WriteLine($"Deshacer: {pila.Pop()}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Ejemplo 4: Uso de HashSet<T> para Eliminación de Duplicados
+
+Caso de Uso: Filtrar datos duplicados de una lista.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numeros = new List<int> { 1, 2, 3, 4, 1, 2, 5 };
+        HashSet<int> unicos = new HashSet<int>(numeros);
+
+        Console.WriteLine("Números únicos:");
+        foreach (var numero in unicos)
+        {
+            Console.WriteLine(numero);
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Ejemplo 5: Uso Avanzado de ConcurrentDictionary
+
+Caso de Uso: Incrementar contadores en un programa multihilo.
+
+using System;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main()
+    {
+        ConcurrentDictionary<string, int> contador = new ConcurrentDictionary<string, int>();
+
+        Parallel.For(0, 100, i =>
+        {
+            string clave = i % 2 == 0 ? "Par" : "Impar";
+            contador.AddOrUpdate(clave, 1, (key, oldValue) => oldValue + 1);
+        });
+
+        foreach (var item in contador)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Ejemplo 6: Mezcla de Colecciones para Modelar Datos Complejos
+
+Caso de Uso: Crear un registro jerárquico de empleados.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    class Empleado
+    {
+        public string Nombre { get; set; }
+        public List<string> Tareas { get; set; }
+    }
+
+    static void Main()
+    {
+        Dictionary<string, List<Empleado>> departamentos = new Dictionary<string, List<Empleado>>();
+
+        departamentos["TI"] = new List<Empleado>
+        {
+            new Empleado { Nombre = "Ana", Tareas = new List<string> { "Soporte", "Mantenimiento" } },
+            new Empleado { Nombre = "Luis", Tareas = new List<string> { "Desarrollo", "Testing" } }
+        };
+
+        departamentos["Recursos Humanos"] = new List<Empleado>
+        {
+            new Empleado { Nombre = "Maria", Tareas = new List<string> { "Contratación", "Capacitación" } }
+        };
+
+        foreach (var departamento in departamentos)
+        {
+            Console.WriteLine($"Departamento: {departamento.Key}");
+            foreach (var empleado in departamento.Value)
+            {
+                Console.WriteLine($"  Empleado: {empleado.Nombre}");
+                Console.WriteLine("  Tareas: " + string.Join(", ", empleado.Tareas));
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Conclusión
+
+Estos ejemplos avanzados demuestran cómo puedes usar colecciones en C# para resolver problemas reales de manera eficiente.
+--------------------------------------------------------------------------------
+Aquí tienes ejemplos de casos específicos donde las colecciones en C# pueden ser útiles.
+--------------------------------------------------------------------------------
+Caso 1: Sistema de Reservas de Sala
+
+Descripción: Usar un Dictionary para almacenar la agenda de reservas, donde la clave es la fecha y el valor es una lista de horarios reservados.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<DateTime, List<string>> reservas = new Dictionary<DateTime, List<string>>();
+
+        // Agregar reservas
+        DateTime fecha = DateTime.Today;
+        reservas[fecha] = new List<string> { "10:00 AM", "2:00 PM" };
+
+        // Verificar disponibilidad
+        string horaDeseada = "10:00 AM";
+        if (reservas.ContainsKey(fecha) && reservas[fecha].Contains(horaDeseada))
+        {
+            Console.WriteLine($"La sala está ocupada el {fecha:d} a las {horaDeseada}.");
+        }
+        else
+        {
+            Console.WriteLine($"La sala está disponible el {fecha:d} a las {horaDeseada}.");
+        }
+
+        // Mostrar todas las reservas
+        Console.WriteLine("\nReservas actuales:");
+        foreach (var dia in reservas)
+        {
+            Console.WriteLine($"Fecha: {dia.Key:d}");
+            foreach (var hora in dia.Value)
+            {
+                Console.WriteLine($" - Hora: {hora}");
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Caso 2: Control de Inventario de Productos
+
+Descripción: Usar un List para modelar un inventario y un Dictionary para buscar productos rápidamente por código.
+
+using System;
+using System.Collections.Generic;
+
+class Producto
+{
+    public string Codigo { get; set; }
+    public string Nombre { get; set; }
+    public int Cantidad { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<Producto> inventario = new List<Producto>
+        {
+            new Producto { Codigo = "P001", Nombre = "Laptop", Cantidad = 10 },
+            new Producto { Codigo = "P002", Nombre = "Monitor", Cantidad = 5 },
+            new Producto { Codigo = "P003", Nombre = "Teclado", Cantidad = 15 }
+        };
+
+        Dictionary<string, Producto> mapaInventario = new Dictionary<string, Producto>();
+        foreach (var producto in inventario)
+        {
+            mapaInventario[producto.Codigo] = producto;
+        }
+
+        // Consultar un producto por código
+        string codigoBuscado = "P002";
+        if (mapaInventario.TryGetValue(codigoBuscado, out Producto productoEncontrado))
+        {
+            Console.WriteLine($"Producto encontrado: {productoEncontrado.Nombre}, Cantidad: {productoEncontrado.Cantidad}");
+        }
+        else
+        {
+            Console.WriteLine("Producto no encontrado.");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Caso 3: Registro de Ventas por Cliente
+
+Descripción: Usar un Dictionary de List para almacenar las ventas realizadas por cada cliente.
+
+using System;
+using System.Collections.Generic;
+
+class Venta
+{
+    public string Producto { get; set; }
+    public decimal Precio { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<string, List<Venta>> ventasPorCliente = new Dictionary<string, List<Venta>>();
+
+        // Agregar ventas
+        ventasPorCliente["Cliente1"] = new List<Venta>
+        {
+            new Venta { Producto = "Laptop", Precio = 1200.99m },
+            new Venta { Producto = "Mouse", Precio = 25.50m }
+        };
+
+        ventasPorCliente["Cliente2"] = new List<Venta>
+        {
+            new Venta { Producto = "Monitor", Precio = 300.75m }
+        };
+
+        // Mostrar las ventas de un cliente
+        string clienteBuscado = "Cliente1";
+        if (ventasPorCliente.TryGetValue(clienteBuscado, out List<Venta> ventas))
+        {
+            Console.WriteLine($"Ventas de {clienteBuscado}:");
+            foreach (var venta in ventas)
+            {
+                Console.WriteLine($"- Producto: {venta.Producto}, Precio: ${venta.Precio}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"No hay ventas registradas para {clienteBuscado}.");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Caso 4: Simulación de una Cola de Impresión
+
+Descripción: Usar una Queue para modelar un sistema de cola de impresión.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Queue<string> colaImpresion = new Queue<string>();
+
+        // Agregar trabajos a la cola
+        colaImpresion.Enqueue("Documento1.pdf");
+        colaImpresion.Enqueue("Foto.jpg");
+        colaImpresion.Enqueue("Informe.docx");
+
+        // Procesar trabajos
+        Console.WriteLine("Procesando cola de impresión:");
+        while (colaImpresion.Count > 0)
+        {
+            Console.WriteLine($"Imprimiendo: {colaImpresion.Dequeue()}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Caso 5: Sistema de Deshacer/Rehacer
+
+Descripción: Usar dos pilas (Stack) para implementar un sistema de deshacer y rehacer.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Stack<string> acciones = new Stack<string>();
+        Stack<string> rehacer = new Stack<string>();
+
+        // Realizar acciones
+        acciones.Push("Escribir título");
+        acciones.Push("Escribir primer párrafo");
+        acciones.Push("Escribir segundo párrafo");
+
+        // Deshacer última acción
+        string ultimaAccion = acciones.Pop();
+        rehacer.Push(ultimaAccion);
+        Console.WriteLine($"Deshacer: {ultimaAccion}");
+
+        // Rehacer la última acción deshecha
+        string rehacerAccion = rehacer.Pop();
+        acciones.Push(rehacerAccion);
+        Console.WriteLine($"Rehacer: {rehacerAccion}");
+    }
+}
+--------------------------------------------------------------------------------
+Caso 6: Verificación de Palíndromos
+
+Descripción: Usar una pila (Stack) para verificar si una palabra es un palíndromo.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string palabra = "radar";
+        Stack<char> pila = new Stack<char>();
+
+        foreach (char c in palabra)
+        {
+            pila.Push(c);
+        }
+
+        string palabraInvertida = "";
+        while (pila.Count > 0)
+        {
+            palabraInvertida += pila.Pop();
+        }
+
+        if (palabra == palabraInvertida)
+        {
+            Console.WriteLine($"{palabra} es un palíndromo.");
+        }
+        else
+        {
+            Console.WriteLine($"{palabra} no es un palíndromo.");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Recursos Humanos
+
+Caso: Evaluación de desempeño de empleados
+
+Descripción: Usar un SortedDictionary para organizar empleados por puntuación de desempeño (clave) y una lista de nombres como valor.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        SortedDictionary<int, List<string>> evaluaciones = new SortedDictionary<int, List<string>>();
+
+        // Agregar evaluaciones
+        evaluaciones[5] = new List<string> { "Alice", "Bob" };
+        evaluaciones[4] = new List<string> { "Charlie", "Dana" };
+        evaluaciones[3] = new List<string> { "Eve", "Frank" };
+
+        // Mostrar evaluaciones ordenadas
+        Console.WriteLine("Evaluaciones de desempeño (de menor a mayor):");
+        foreach (var evaluacion in evaluaciones)
+        {
+            Console.WriteLine($"Puntuación {evaluacion.Key}:");
+            foreach (var empleado in evaluacion.Value)
+            {
+                Console.WriteLine($" - {empleado}");
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Gestión de Proyectos
+
+Caso: Seguimiento de tareas por prioridad
+
+Descripción: Usar un PriorityQueue para manejar tareas donde las más importantes se atienden primero.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        PriorityQueue<string, int> tareas = new PriorityQueue<string, int>();
+
+        // Agregar tareas con prioridades (menor número = mayor prioridad)
+        tareas.Enqueue("Revisar presupuesto", 1);
+        tareas.Enqueue("Enviar informe", 2);
+        tareas.Enqueue("Llamar al cliente", 3);
+
+        // Procesar tareas por prioridad
+        Console.WriteLine("Procesando tareas por prioridad:");
+        while (tareas.Count > 0)
+        {
+            Console.WriteLine($"Tarea: {tareas.Dequeue()}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Educación
+
+Caso: Registro de calificaciones por curso
+
+Descripción: Usar un Dictionary con un HashSet para evitar duplicados al registrar calificaciones.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<string, HashSet<int>> calificacionesPorCurso = new Dictionary<string, HashSet<int>>();
+
+        // Agregar calificaciones
+        calificacionesPorCurso["Matemáticas"] = new HashSet<int> { 85, 90, 78 };
+        calificacionesPorCurso["Historia"] = new HashSet<int> { 88, 92, 78, 88 }; // Evita duplicados
+
+        // Mostrar calificaciones por curso
+        Console.WriteLine("Calificaciones por curso:");
+        foreach (var curso in calificacionesPorCurso)
+        {
+            Console.WriteLine($"{curso.Key}: {string.Join(", ", curso.Value)}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Juegos
+
+Caso: Gestión de inventario de jugador
+
+Descripción: Usar un Stack para modelar un inventario limitado, donde el objeto más antiguo es reemplazado cuando el límite se excede.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Stack<string> inventario = new Stack<string>();
+        int capacidadMaxima = 3;
+
+        // Agregar objetos
+        inventario.Push("Espada");
+        inventario.Push("Escudo");
+        inventario.Push("Poción");
+
+        // Intentar agregar un cuarto objeto
+        if (inventario.Count >= capacidadMaxima)
+        {
+            inventario.Pop(); // Quitar el objeto más antiguo
+        }
+        inventario.Push("Arco");
+
+        // Mostrar inventario actual
+        Console.WriteLine("Inventario actual:");
+        foreach (var objeto in inventario)
+        {
+            Console.WriteLine($" - {objeto}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Finanzas
+
+Caso: Registro de transacciones bancarias
+
+Descripción: Usar una Queue para procesar transacciones en el orden en que llegan.
+
+csharp
+Copiar código
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Queue<string> transacciones = new Queue<string>();
+
+        // Agregar transacciones
+        transacciones.Enqueue("Depósito de $500");
+        transacciones.Enqueue("Retiro de $200");
+        transacciones.Enqueue("Transferencia de $300");
+
+        // Procesar transacciones
+        Console.WriteLine("Procesando transacciones:");
+        while (transacciones.Count > 0)
+        {
+            Console.WriteLine(transacciones.Dequeue());
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Análisis de Datos
+
+Caso: Análisis de palabras más frecuentes en un texto
+
+Descripción: Usar un Dictionary para contar la frecuencia de palabras.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string texto = "C# es un lenguaje de programación. C# es versátil y poderoso.";
+        Dictionary<string, int> conteoPalabras = new Dictionary<string, int>();
+
+        // Dividir el texto en palabras
+        string[] palabras = texto.Split(new char[] { ' ', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var palabra in palabras)
+        {
+            string palabraMinuscula = palabra.ToLower();
+            if (conteoPalabras.ContainsKey(palabraMinuscula))
+            {
+                conteoPalabras[palabraMinuscula]++;
+            }
+            else
+            {
+                conteoPalabras[palabraMinuscula] = 1;
+            }
+        }
+
+        // Mostrar frecuencias
+        Console.WriteLine("Frecuencia de palabras:");
+        foreach (var kvp in conteoPalabras)
+        {
+            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: E-commerce
+
+Caso: Seguimiento de carritos de compra por cliente
+
+Descripción: Usar un Dictionary con un List para registrar los productos en el carrito de cada cliente.
+
+using System;
+using System.Collections.Generic;
+
+class Producto
+{
+    public string Nombre { get; set; }
+    public decimal Precio { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<string, List<Producto>> carritos = new Dictionary<string, List<Producto>>();
+
+        // Agregar productos al carrito de un cliente
+        carritos["Cliente1"] = new List<Producto>
+        {
+            new Producto { Nombre = "Smartphone", Precio = 799.99m },
+            new Producto { Nombre = "Funda", Precio = 19.99m }
+        };
+
+        // Mostrar carrito de un cliente
+        string cliente = "Cliente1";
+        Console.WriteLine($"Carrito de {cliente}:");
+        foreach (var producto in carritos[cliente])
+        {
+            Console.WriteLine($" - {producto.Nombre}: ${producto.Precio}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Área: Inteligencia Artificial
+
+Caso: Historial de movimientos en un algoritmo de búsqueda
+
+Descripción: Usar un Stack para almacenar movimientos pendientes y un HashSet para registrar los movimientos ya explorados, como en el algoritmo de búsqueda en profundidad (DFS).
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Definimos el grafo como un diccionario (cada nodo tiene una lista de vecinos)
+        Dictionary<string, List<string>> grafo = new Dictionary<string, List<string>>
+        {
+            { "A", new List<string> { "B", "C" } },
+            { "B", new List<string> { "D", "E" } },
+            { "C", new List<string> { "F" } },
+            { "D", new List<string>() },
+            { "E", new List<string>() },
+            { "F", new List<string>() }
+        };
+
+        // Inicializamos el stack para movimientos pendientes y el hashset para movimientos explorados
+        Stack<string> pendientes = new Stack<string>();
+        HashSet<string> explorados = new HashSet<string>();
+
+        // Nodo inicial
+        string nodoInicial = "A";
+        pendientes.Push(nodoInicial);
+
+        Console.WriteLine("Realizando búsqueda en profundidad...");
+
+        // Algoritmo de búsqueda en profundidad (DFS)
+        while (pendientes.Count > 0)
+        {
+            string actual = pendientes.Pop();
+
+            // Si ya lo exploramos, lo ignoramos
+            if (explorados.Contains(actual))
+                continue;
+
+            // Marcamos el nodo como explorado
+            explorados.Add(actual);
+            Console.WriteLine($"Nodo explorado: {actual}");
+
+            // Agregamos sus vecinos al stack (si no están ya explorados)
+            foreach (string vecino in grafo[actual])
+            {
+                if (!explorados.Contains(vecino))
+                {
+                    pendientes.Push(vecino);
+                }
+            }
+        }
+
+        Console.WriteLine("Búsqueda completada.");
+        Console.WriteLine("Nodos explorados en orden:");
+        foreach (string nodo in explorados)
+        {
+            Console.WriteLine($" - {nodo}");
+        }
+    }
+}
+Explicación del Código:
+
+Grafo:
+
+El grafo está representado como un Dictionary<string, List<string>>, donde cada clave es un nodo y su valor es la lista de nodos vecinos.
+Estructuras:
+
+Stack<string>: Almacena los nodos pendientes de explorar (movimientos por procesar).
+HashSet<string>: Registra los nodos que ya han sido visitados, evitando explorarlos nuevamente.
+Proceso:
+
+Se inicia en un nodo y se explora en profundidad (DFS).
+Cada nodo visitado se marca como explorado y sus vecinos no explorados se añaden al stack.
+El proceso termina cuando el stack está vacío (todos los movimientos han sido procesados).
+Salida:
+
+Muestra el orden de los nodos explorados y la lista final de nodos explorados.
+Ejemplo de Ejecución:
+Si el grafo es:
+
+mathematica
+Copiar código
+    A
+   / \
+  B   C
+ / \    \
+D   E    F
+Salida esperada:
+
+yaml
+Copiar código
+Realizando búsqueda en profundidad...
+Nodo explorado: A
+Nodo explorado: C
+Nodo explorado: F
+Nodo explorado: B
+Nodo explorado: E
+Nodo explorado: D
+Búsqueda completada.
+Nodos explorados en orden:
+ - A
+ - C
+ - F
+ - B
+ - E
+ - D
+
+Algoritmo como BFS (búsqueda en anchura) o alguna variación más compleja
+
+*******************************************
+***   TIPOS DE DATOS: MYSQL VS CSHARP   ***   
+*******************************************
+
+--------------------------------------------------------------------------------
+CREATE TABLE EjemploTiposDatos (
+    id 					INT 		AUTO_INCREMENT PRIMARY KEY,     -- Entero auto incrementable (clave primaria)
+    nombre VARCHAR(100) NOT NULL,                					-- Cadena de texto variable hasta 100 caracteres
+    descripcion 		TEXT,                            			-- Cadena de texto largo
+    fecha_creacion 		DATE,                         				-- Fecha
+    hora_registro 		TIME,                          				-- Hora
+    fecha_hora 			TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 		-- Fecha y hora con valor por defecto
+    activo 				BOOLEAN DEFAULT TRUE,                 		-- Booleano
+    edad 				TINYINT UNSIGNED,                       	-- Entero pequeño sin signo
+    salario 			DECIMAL(10, 2),                      		-- Número decimal con 10 dígitos en total y 2 decimales
+    porcentaje 			FLOAT,                            			-- Número flotante
+    imagen 				BLOB,                                 		-- Almacén binario grande (para imágenes u otros datos binarios)
+    fecha_y_hora_evento DATETIME,                					-- Fecha y hora combinadas	
+    detalles 			JSON                                		-- Campo JSON
+);
+--------------------------------------------------------------------------------
+Explicación de los tipos de datos:
+
+INT			: Para números enteros más grandes, con opción de AUTO_INCREMENT para claves primarias.
+VARCHAR		: Para cadenas de texto de longitud variable.
+TEXT		: Para cadenas de texto más extensas.
+DATE y TIME	: Para almacenar fechas y horas respectivamente.
+TIMESTAMP	: Para fechas y horas, útil para registrar el momento de creación/modificación.
+BOOLEAN		: Representa valores TRUE o FALSE.
+TINYINT		: Para números enteros pequeños (en este caso, UNSIGNED no permite valores negativos).
+DECIMAL		: Para números decimales con precisión definida (útil para valores monetarios).
+FLOAT		: Para números decimales con precisión flotante.
+BLOB		: Para almacenar datos binarios como imágenes, documentos, etc.
+DATETIME	: Combina una fecha y una hora, sin zona horaria. 
+JSON		: Para almacenar datos estructurados en formato JSON.
+--------------------------------------------------------------------------------
+Ejemplo de inserción de datos:
+
+INSERT INTO EjemploTiposDatos ( nombre, descripcion, fecha_creacion, hora_registro, activo, edad, salario, porcentaje, echa_y_hora_evento, detalles) 
+VALUES (
+    'John Doe',
+    'Este es un ejemplo de texto largo.',
+    '2024-12-21',
+    '14:30:00',
+    TRUE,
+    25,
+    2500.50,
+    0.85,
+	'2024-12-25 18:30:00',
+    '{"hobby": "programación", "nivel": "intermedio"}'
+);
+--------------------------------------------------------------------------------
+
+using (SqlConnection connection = new SqlConnection("tu_cadena_de_conexion"))
+{
+    connection.Open();
+
+    // Consulta que selecciona todos los campos de la tabla EjemploTiposDatos
+    SqlCommand command = new SqlCommand("SELECT * FROM EjemploTiposDatos", connection);
+
+    using (SqlDataReader reader = command.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            int id 						= reader.GetInt32(reader.GetOrdinal("id"));
+            string nombre 				= reader.GetString(reader.GetOrdinal("nombre"));
+            string descripcion 			= reader.IsDBNull(reader.GetOrdinal("descripcion")) ? "NULL" : reader.GetString(reader.GetOrdinal("descripcion"));
+            DateTime? fechaCreacion 	= reader.IsDBNull(reader.GetOrdinal("fecha_creacion")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("fecha_creacion"));
+            TimeSpan? horaRegistro 		= reader.IsDBNull(reader.GetOrdinal("hora_registro")) ? (TimeSpan?)null : reader.GetTimeSpan(reader.GetOrdinal("hora_registro"));
+            DateTime fechaHora			= reader.GetDateTime(reader.GetOrdinal("fecha_hora"));
+            bool activo 				= reader.GetBoolean(reader.GetOrdinal("activo"));
+            byte edad 					= reader.GetByte(reader.GetOrdinal("edad"));
+            decimal salario 			= reader.GetDecimal(reader.GetOrdinal("salario"));
+            float porcentaje 			= reader.GetFloat(reader.GetOrdinal("porcentaje"));
+            byte[] imagen 				= reader.IsDBNull(reader.GetOrdinal("imagen")) ? null : (byte[])reader.GetValue(reader.GetOrdinal("imagen"));
+            DateTime? fechaHoraEvento 	= reader.IsDBNull(reader.GetOrdinal("fecha_y_hora_evento")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("fecha_y_hora_evento"));
+            string detalles 			= reader.IsDBNull(reader.GetOrdinal("detalles")) ? "NULL" : reader.GetString(reader.GetOrdinal("detalles"));
+
+            Console.WriteLine($"ID: {id}, Nombre: {nombre}, Descripción: {descripcion}, " +
+                              $"Fecha Creación: {fechaCreacion}, Hora Registro: {horaRegistro}, Fecha y Hora: {fechaHora}, " +
+                              $"Activo: {activo}, Edad: {edad}, Salario: {salario}, Porcentaje: {porcentaje}, " +
+                              $"Fecha y Hora Evento: {fechaHoraEvento}, Detalles: {detalles}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Uso de reader.GetXXX
+
+Puedes usar métodos específicos (GetInt32, GetString, etc.) para leer datos directamente en el tipo esperado, evitando conversiones adicionales:
+
+int id = reader.GetInt32(reader.GetOrdinal("Id")); // Usando el nombre de la columna
+string nombre = reader.GetString(reader.GetOrdinal("nombre"));
+--------------------------------------------------------------------------------
+Lectura con reader["NombreColumna"]
+
+Accedes a los valores utilizando el nombre de la columna. Esto es más descriptivo pero menos eficiente que usar índices.
+
+while (reader.Read())
+{
+    int id = (int)reader["id"];
+    string nombre = (string)reader["nombre"];
+    Console.WriteLine($"ID: {id}, Nombre: {nombre}");
+}
+--------------------------------------------------------------------------------
+Manejo de Valores Nulos con IsDBNull
+
+Cuando una columna puede contener valores NULL, debes verificarlo con reader.IsDBNull antes de acceder al valor.
+
+while (reader.Read())
+{
+    int id = !reader.IsDBNull(0) ? reader.GetInt32(0) : 0;
+    string nombre = !reader.IsDBNull(1) ? reader.GetString(1) : "Sin Nombre";
+    Console.WriteLine($"ID: {id}, Nombre: {nombre}");
+}
+--------------------------------------------------------------------------------
+Uso de foreach con LINQ
+
+Puedes cargar los datos en una colección (como una lista) y luego procesarlos con foreach:
+
+var lista = new List<(int Id, string Nombre)>();
+
+using (SqlConnection connection = new SqlConnection("tu_cadena_de_conexion"))
+{
+    connection.Open();
+    SqlCommand command = new SqlCommand("SELECT Id, Nombre FROM Tabla", connection);
+    using (SqlDataReader reader = command.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            lista.Add((reader.GetInt32(0), reader.GetString(1)));
+        }
+    }
+}
+
+// Procesar la lista con foreach
+foreach (var item in lista)
+{
+    Console.WriteLine($"ID: {item.Id}, Nombre: {item.Nombre}");
+}
+--------------------------------------------------------------------------------
+Mapeo a una Clase o Modelo
+
+Es útil cuando trabajas con objetos en lugar de datos primitivos. Puedes mapear las filas a instancias de una clase.
+
+public class Persona
+{
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+}
+
+var personas = new List<Persona>();
+
+using (SqlConnection connection = new SqlConnection("tu_cadena_de_conexion"))
+{
+    connection.Open();
+    SqlCommand command = new SqlCommand("SELECT id, nombre FROM Tabla", connection);
+    using (SqlDataReader reader = command.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            personas.Add(new Persona
+            {
+                Id = reader.GetInt32(0),
+                Nombre = reader.GetString(1)
+            });
+        }
+    }
+}
+
+// Usar los objetos Persona
+foreach (var persona in personas)
+{
+    Console.WriteLine($"ID: {persona.Id}, Nombre: {persona.Nombre}");
+}
+--------------------------------------------------------------------------------
+Lectura con Asincronía
+
+Usar métodos asincrónicos como ReadAsync para mejorar la escalabilidad en aplicaciones.
+
+using (SqlConnection connection = new SqlConnection("tu_cadena_de_conexion"))
+{
+    await connection.OpenAsync();
+    SqlCommand command = new SqlCommand("SELECT id, nombre FROM Tabla", connection);
+    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+    {
+        while (await reader.ReadAsync())
+        {
+            int id = reader.GetInt32(0);
+            string nombre = reader.GetString(1);
+            Console.WriteLine($"ID: {id}, Nombre: {nombre}");
+        }
+    }
+}
+--------------------------------------------------------------------------------
+Manejo con try-catch-finally
+
+Para capturar y manejar excepciones durante la lectura.
+
+try
+{
+    using (SqlConnection connection = new SqlConnection("tu_cadena_de_conexion"))
+    {
+        connection.Open();
+        SqlCommand command = new SqlCommand("SELECT id, nombre FROM Tabla", connection);
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine($"ID: {reader.GetInt32(0)}, Nombre: {reader.GetString(1)}");
+            }
+        }
+    }
+}
+catch (SqlException ex)
+{
+    Console.WriteLine("Error de SQL: " + ex.Message);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error general: " + ex.Message);
+}
+--------------------------------------------------------------------------------
+Estas formas de manejar el reader dependen del contexto y la necesidad. Para 
+aplicaciones simples, Read es suficiente. Para aplicaciones más complejas, 
+puedes usar mapeo a objetos, manejo de valores nulos, asincronía, o capturar 
+excepciones para mayor robustez.
+--------------------------------------------------------------------------------
+
+****************
+***   0024   ***  LEER ARCHIVO JSON
+****************
+
+(0) data7.json
+
+[
+  {
+    "idPersona": "P1",
+    "nombre": "Juan",
+    "edad": 25,
+    "estatura": 1.72,
+    "casado": true,
+    "sexo": "H",
+    "direccion": {
+      "calle": "Av América",
+      "numero": 123,
+      "ciudad": "Madrid"
+    },
+    "hobbies": [ "Fútbol", "Pintura", "Viajar" ]
+  },
+  {
+    "idPersona": "P2",
+    "nombre": "Carmen",
+    "edad": 21,
+    "estatura": 1.71,
+    "casado": false,
+    "sexo": "M",
+    "direccion": {
+      "calle": "Av. Ejercito",
+      "numero": 456,
+      "ciudad": "Trujillo"
+    },
+    "hobbies": ["Cine", "Leer"]
+  }
+]
+
+(1)
+
+        static void LeerJson_1()
+        {
+            try
+            {
+                string ruta_relativa = @"data/json/data7.json";
+                if (File.Exists(ruta_relativa))
+                {
+                    string json = File.ReadAllText(ruta_relativa); // Leer el contenido del archivo JSON
+                    Console.WriteLine(json);
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: ARCHIVO NO EXISTE");
+                }
+            }
+            catch (JsonReaderException ex)
+            {
+                Console.WriteLine("ERROR: LEER ARCHIVO " + ex.Message);
+            }
+        }
+		
+(2)
+
+        static void LeerJson_1()
+        {
+            try
+            {
+                string ruta_relativa = @"data/json/data7.json";
+                if (File.Exists(ruta_relativa))
+                {
+                    string json = File.ReadAllText(ruta_relativa); // Guardar en en la variable de tipo cadena llamada json todo el contenido que se lee del archvo JSON
+                    JArray objetos = JArray.Parse(json); // Parsear la cadena en json a un arreglo de objetos JObject
+
+                    foreach (var objeto in objetos)
+                    {
+                        Console.WriteLine("ID: " + objeto["idPersona"]);
+                        Console.WriteLine("Nombre: " + objeto["nombre"]);
+                        Console.WriteLine("Edad: " + objeto["edad"]);
+                        Console.WriteLine("Estatura: " + objeto["estatura"]);
+                        Console.WriteLine("Casado: " + objeto["casado"]);
+                        Console.WriteLine("Sexo: " + objeto["sexo"]);
+                        Console.WriteLine("Dirección: ");
+                        Console.WriteLine("   Calle : " + objeto["direccion"]["calle"]);
+                        Console.WriteLine("   Número: " + objeto["direccion"]["numero"]);
+                        Console.WriteLine("   Ciudad: " + objeto["direccion"]["ciudad"]);
+                        Console.WriteLine("Hobbies: ");
+                        foreach (string hobby in objeto["hobbies"])
+                        {
+                            Console.WriteLine("   " + hobby);
+                        }
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: ARCHIVO NO EXISTE");
+                }
+            }
+            catch (JsonReaderException ex)
+            {
+                Console.WriteLine("ERROR: LEER ARCHIVO " + ex.Message);
+            }
+        }
+		
+(3)
+
+--------------------------------------------------------------------------------
+data.json
+--------------------------------------------------------------------------------
+[
+  {
+    "idPersona": "P1",
+    "nombre": "Juan",
+    "edad": 25,
+    "estatura": 1.72,
+    "casado": true,
+    "sexo": "H",
+    "direccion": {
+      "calle": "Av América",
+      "numero": 123,
+      "ciudad": "Madrid"
+    },
+    "hobbies": [ "Fútbol", "Pintura", "Viajar" ]
+  },
+  {
+    "idPersona": "P2",
+    "nombre": "Carmen",
+    "edad": 21,
+    "estatura": 1.71,
+    "casado": false,
+    "sexo": "M",
+    "direccion": {
+      "calle": "Av. Ejercito",
+      "numero": 456,
+      "ciudad": "Trujillo"
+    },
+    "hobbies": ["Cine", "Leer"]
+  }
+]
+--------------------------------------------------------------------------------
+    class Persona2
+    {
+        public string idPersona { get; set; }
+        public string nombre { get; set; }
+        public int edad { get; set; }
+        public double estatura { get; set; }
+        public bool casado { get; set; }
+        public string sexo { get; set; }
+        public Direccion direccion { get; set; }
+        public string[] hobbies { get; set; }
+    }
+	
+    public class Direccion
+    {
+        public string calle { get; set; }
+        public int numero { get; set; }
+        public string ciudad { get; set; }
+    }	
+--------------------------------------------------------------------------------
+        static void LeerJson_3()
+        {
+            try
+            {
+                string ruta_relativa = @"data/json/data.json";
+                if (File.Exists(ruta_relativa))
+                {
+                    string json = File.ReadAllText(ruta_relativa); // Leer el contenido del archivo JSON
+                    Persona[] personas = JsonConvert.DeserializeObject<Persona[]>(json); // Deserializar el JSON a un array de objetos Persona
+
+                    foreach (Persona2 persona in personas)
+                    {
+                        Console.WriteLine("ID: " + persona.idPersona);
+                        Console.WriteLine("Nombre: " + persona.nombre);
+                        Console.WriteLine("Edad: " + persona.edad);
+                        Console.WriteLine("Estatura: " + persona.estatura);
+                        Console.WriteLine("Casado: " + persona.casado);
+                        Console.WriteLine("Sexo: " + persona.sexo);
+                        Console.WriteLine("Dirección: ");
+                        Console.WriteLine("   Calle : " + persona.direccion.calle);
+                        Console.WriteLine("   Número: " + persona.direccion.numero);
+                        Console.WriteLine("   Ciudad: " + persona.direccion.ciudad);
+                        Console.WriteLine("Hobbies: ");
+                        foreach (var hobby in persona.hobbies)
+                        {
+                            Console.WriteLine("   " + hobby);
+                        }
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: ARCHIVO NO EXISTE");
+                }
+            }
+            catch (JsonReaderException ex)
+            {
+                Console.WriteLine("ERROR: LEER ARCHIVO " + ex.Message);
+            }
+        }
+--------------------------------------------------------------------------------
+****************
+***   CRUD   ***  CREATE READ UPDATE DELETE
+****************
+--------------------------------------------------------------------------------
+    public class Producto
+    {
+        public int IdProducto { get; set; }
+        public string? Nombre { get; set; }
+        public string? Descripcion { get; set; }
+        public double Precio { get; set; }
+        public int Stock { get; set; }
+        public string? Categoria { get; set; }
+
+        public Producto(int idProducto, string? nombre, string? descripcion, double precio, int stock, string? categoria) 
+        { 
+           this.IdProducto = idProducto;
+           this.Nombre = nombre;
+           this.Descripcion = descripcion;
+           this.Precio = precio;
+           this.Stock = stock;
+           this.Categoria = categoria;
+        }
+
+        public Producto(int idProducto, string? nombre, double precio, int stock)
+        {
+            this.IdProducto = idProducto;
+            this.Nombre = nombre;
+            this.Precio = precio;
+            this.Stock = stock;
+        }
+
+        public Producto(string? nombre, string? descripcion, double precio, int stock, string? categoria)
+        {
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+            this.Precio = precio;
+            this.Stock = stock;
+            this.Categoria = categoria;
+        }
+
+    }
+--------------------------------------------------------------------------------
+CONEXION
+--------------------------------------------------------------------------------
+            public static MySqlConnection ObtenerConexion()
+            {
+                string conexionUrl = "Server=localhost;Database=ferreteria;Uid=root;Pwd=12345678;Port=3307";
+                MySqlConnection conexion = new MySqlConnection(conexionUrl);
+                try
+                {
+                    conexion.Open();
+                    return conexion;
+                }
+                catch (MySqlException ex)
+                {
+                    return null;
+                }
+            }
+--------------------------------------------------------------------------------
+READ
+--------------------------------------------------------------------------------
+		public static List<Producto> ObtenerListaProductos()
+		{
+			List<Producto> productos_lo = new List<Producto>();
+
+			using (MySqlConnection conexion = Conexion.ObtenerConexion())
+			{
+				if (conexion != null)
+				{
+					try
+					{
+						string query = "SELECT * FROM Producto";
+
+						using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+						{
+							using (MySqlDataReader reader = cmd.ExecuteReader())
+							{
+								while (reader.Read())
+								{
+									int idProducto = Convert.ToInt32(reader["id_producto"].ToString());
+									string? nombre = reader["nombre"].ToString();
+									string? descripcion = reader["descripcion"].ToString();
+									double precio = Convert.ToDouble(reader["precio"].ToString());
+									int stock = Convert.ToInt32(reader["stock"].ToString());
+									string? categoria = reader["categoria"].ToString();
+
+									Producto producto = new Producto(idProducto, nombre, descripcion, precio, stock, categoria);
+									productos_lo.Add(producto);
+								}
+							}
+						}
+					}
+					catch (MySqlException ex)
+					{
+						MessageBox.Show($"Query Select {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Conexion", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
+
+			return productos_lo;
+		}
+--------------------------------------------------------------------------------
+CREATE
+--------------------------------------------------------------------------------
+        public static void AgregarProducto(Producto producto)
+        {
+            using (MySqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                if (conexion != null)
+                {
+                    try
+                    {
+                        string query = @"INSERT INTO Producto(nombre,descripcion,precio,stock,categoria)
+                                         VALUES(@nombre_p, @descripcion_p, @precio_p, @stock_p, @categoria_p)";
+										 
+                        using(MySqlCommand cmd = new MySqlCommand(query, conexion))
+						{
+							cmd.Parameters.AddWithValue("@nombre_p", producto.Nombre);
+							cmd.Parameters.AddWithValue("@descripcion_p", producto.Descripcion);
+							cmd.Parameters.AddWithValue("@precio_p", producto.Precio);
+							cmd.Parameters.AddWithValue("@stock_p", producto.Stock);
+							cmd.Parameters.AddWithValue("@categoria_p", producto.Categoria);
+							int filasAfectadas = cmd.ExecuteNonQuery();
+
+							if (filasAfectadas > 0)
+							{
+								MessageBox.Show("Producto se inserto correctamente", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+							}
+							else
+							{
+								MessageBox.Show("No se pudo insertar el Producto", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+							}
+                        }						
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show($"Query Insert {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Conexion", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+--------------------------------------------------------------------------------
+UPDATE
+--------------------------------------------------------------------------------
+        public static void ActualizarProducto(Producto producto)
+        {
+            using (MySqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                if (conexion != null)
+                {
+                    try
+                    {
+                        string query = @"UPDATE Producto 
+                                         SET nombre = @nombre_p, 
+                                             descripcion = @descripcion_p,
+                                             precio = @precio_p,
+                                             stock = @stock_p,
+                                             categoria = @categoria_p
+                                         WHERE id_producto = @id_producto_p";
+										 
+                        using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+						{
+							cmd.Parameters.AddWithValue("@id_producto_p", producto.IdProducto);
+							cmd.Parameters.AddWithValue("@nombre_p", producto.Nombre);
+							cmd.Parameters.AddWithValue("@descripcion_p", producto.Descripcion);
+							cmd.Parameters.AddWithValue("@precio_p", producto.Precio);
+							cmd.Parameters.AddWithValue("@stock_p", producto.Stock);
+							cmd.Parameters.AddWithValue("@categoria_p", producto.Categoria);
+
+							int rowsAffected = cmd.ExecuteNonQuery();
+							if (rowsAffected > 0)
+							{
+								MessageBox.Show("Producto se actualizo correctamente", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+							}
+							else
+							{
+								MessageBox.Show("No existe producto para actualizar", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+							}
+						}
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show($"Query Update {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Conexion", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+        }
+--------------------------------------------------------------------------------
+DELETE
+--------------------------------------------------------------------------------
+        public static void EliminarProducto(int idProductoEliminar)
+        {
+            using (MySqlConnection conexion = Conexion.ObtenerConexion())
+            {
+                if (conexion != null)
+                {
+                    try
+                    {
+                        string query = @"DELETE FROM Producto                                  
+                                         WHERE id_producto = @id_producto_eliminar_p";
+										 
+                        using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+						{
+							cmd.Parameters.AddWithValue("@id_producto_eliminar_p", idProductoEliminar);
+							int rowsAffected = cmd.ExecuteNonQuery();
+							if (rowsAffected > 0)
+							{
+								MessageBox.Show("Producto se elimino correctamente", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+							}
+							else
+							{
+								MessageBox.Show("No existe producto para eliminar", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+							}
+						}
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show($"Query Delete {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Conexion", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+--------------------------------------------------------------------------------
+*************************
+***   FRAMEWORD WPF   ***
+*************************
+
+----------------
+---   0001   ---
+----------------
+
+<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="HOLA MUNDO" VerticalAlignment="Top" Margin="0,126,0,0" RenderTransformOrigin="1.748,1.992"/>
+
+<!-- COMENTARIO -->
+
+<Button Content="Clic Aquí"
+        Height="50"
+        Width="100"
+        Margin="0,0,300,234"
+        Background="LightBlue"              <!-- Color de fondo del botón -->
+        Foreground="White"                  <!-- Color del texto -->
+        BorderBrush="DarkBlue"              <!-- Color del borde -->
+        BorderThickness="2"                 <!-- Grosor del borde -->
+        FontSize="16"                       <!-- Tamaño de la fuente -->
+        FontWeight="Bold"                   <!-- Grosor de la fuente -->
+        HorizontalAlignment="Center"        <!-- Alineación horizontal -->
+        VerticalAlignment="Center"          <!-- Alineación vertical -->
+        Padding="5"                         <!-- Espaciado interno -->
+        Click="Button_Click">               <!-- Manejador del evento Click -->
+</Button>
+
+Background: Define el color de fondo del botón.
+Foreground: Define el color del texto del botón.
+BorderBrush: Define el color del borde del botón.
+BorderThickness: Define el grosor del borde del botón.
+FontSize: Define el tamaño de la fuente del texto del botón.
+FontWeight: Define el grosor de la fuente del texto del botón.
+HorizontalAlignment: Define la alineación horizontal del botón dentro de su contenedor.
+VerticalAlignment: Define la alineación vertical del botón dentro de su contenedor.
+Padding: Define el espaciado interno del botón.
+Click: Permite asociar un manejador de eventos al evento Click del botón para realizar una acción cuando se hace clic en él.
+
+<Button Content="SUMAR"
+        Height="20"
+        Width="70"
+		FontSize="9"
+		Background="Black"
+		Foreground="White">
+</Button>
+
+<Button>
+        <Button.Content>SUMAR</Button.Content>
+        <Button.Height>20</Button.Height>
+        <Button.Width>70</Button.Width>
+        <Button.FontSize>9</Button.FontSize>
+        <Button.Background>Black</Button.Background>
+        <Button.Foreground>White</Button.Foreground>
+</Button>
+       
+<Button Content="SUMAR" Height="20" Width="70">
+	    <Button.FontSize>9</Button.FontSize>
+        <Button.Background>Black</Button.Background>
+        <Button.Foreground>White</Button.Foreground>
+</Button>
+
+----------------
+---   0002   ---
+----------------
+
+            Grid grid = new Grid();
+            this.Content = grid;
+
+            Button btn = new Button();
+            btn.FontSize = 26;
+
+            WrapPanel wrapPanel = new WrapPanel(); 
+
+            TextBlock txt = new TextBlock();
+
+            txt.Text = "Botón";
+            txt.Foreground = Brushes.Blue;
+            wrapPanel.Children.Add(txt);
+
+            txt = new TextBlock();
+            txt.Text = "Multi";
+            txt.Foreground = Brushes.Red;
+            wrapPanel.Children.Add(txt);
+
+            txt = new TextBlock();
+            txt.Text = "Color";
+            txt.Foreground = Brushes.White;
+            wrapPanel.Children.Add(txt);
+
+            btn.Content = wrapPanel;
+            grid.Children.Add(btn);
+
+----------------
+---   0002   ---
+----------------
+
+<Grid>
+<Button Height="50" Width="100">
+        <Button.FontSize>12</Button.FontSize>
+        <WrapPanel>
+           <TextBlock Foreground="Blue">Botón</TextBlock>
+           <TextBlock Foreground="Red">Multi</TextBlock>
+           <TextBlock Foreground="White">Color</TextBlock>
+        </WrapPanel>
+</Button>
+</Grid>
+
+
+            WrapPanel wrapPanel = new WrapPanel(); 
+
+            TextBlock txt1 = new TextBlock();
+            txt1.Text = "Botón";
+            txt1.Foreground = Brushes.Blue;
+            wrapPanel.Children.Add(txt1);
+
+            TextBlock txt2 = new TextBlock();
+            txt2.Text = "Multi";
+            txt2.Foreground = Brushes.Red;
+            wrapPanel.Children.Add(txt2);
+
+            TextBlock txt3 = new TextBlock();
+            txt3.Text = "Color";
+            txt3.Foreground = Brushes.White;
+            wrapPanel.Children.Add(txt3);
+
+            Button btn = new Button();
+            btn.Height = 50;
+            btn.Width = 100;
+            btn.FontSize = 12;
+            btn.Content = wrapPanel;
+
+            Grid grid = new Grid();
+            grid.Children.Add(btn);
+
+            this.Content = grid;
+
+----------------
+---   0003   ---
+----------------
+
+App.xaml
+
+<Application x:Class="WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF"
+             StartupUri="XAML/Xaml_001/Ventana.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
+
+
+- REMPLAZAR ESTO EN EL APP.XAML
+
+StartupUri="XAML/Xaml_001/Ventana.xaml">
+StartupUri="MainWindow.xaml">
+
+----------------
+---   0004   ---   PROPIEDADES DE UNA VENTANA
+----------------
+
+(1) XAML
+
+(1.1)
+
+<Window x:Class="WPF.XAML.Xaml_009.Ventana1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.XAML.Xaml_009"
+        mc:Ignorable="d"
+        
+        Title="VENTANA CSHARP"  
+        Topmost="True"		
+        Height="325" 
+        Width="400"			
+        Icon="cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+		
+    <Grid>
+        
+    </Grid>
+	
+</Window>
+
+(1.2)
+
+Title="VENTANA CSHARP" 
+Topmost="True"                  
+Height="325" 
+Width="400"			
+Icon="cross1.png"
+ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen"
+WindowStyle="SingleBorderWindow"
+Background="LightGray"
+
+
+Poner un título a la ventana
+Poner la ventana en primer plano por encima de todas las demás
+Poner una altura a la ventana
+Poner un ancho a la ventana
+Poner un icono a la ventana
+Hacer que la ventana no se pueda redimensionar
+Poner la ventana en el centro de la pantalla
+Establecer el estilo de la ventana. La ventana tendrá un único borde alrededor de su contenido
+Poner un color de fondo a la ventana
+
+(2) CSHARP
+
+namespace WPF.XAML.Xaml_009
+{
+    public partial class Ventana2 : Window
+    {
+        private Grid gridMain = new Grid();
+        public Ventana2()
+        {
+            InitializeComponent();
+            personalizarVentana();
+        }
+
+        public void personalizarVentana()
+        {
+            this.Title = "VENTANA CSHARP";
+            this.Height = 325;
+            this.Width = 400;
+
+            string rutaRelativa = "data/imagen/cross1.png";
+            string rutaAbsoluta = System.IO.Path.GetFullPath(rutaRelativa);
+            this.Icon = new BitmapImage(new Uri(rutaAbsoluta, UriKind.Relative));
+
+            this.ResizeMode = ResizeMode.NoResize;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowStyle = WindowStyle.SingleBorderWindow;
+            this.Background = Brushes.LightGray;
+
+            this.Content = gridMain;
+        }
+    }
+}
+
+----------------
+---   0005   ---   EJEMPLO 
+----------------
+
+--------------------------------------------------------------------------------
+Ventana.xaml
+--------------------------------------------------------------------------------
+<Window x:Class="CSharpProjects6.XAML.Xaml_0001.Ventana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpProjects6.XAML.Xaml_0001"
+        mc:Ignorable="d"
+        
+        Title="VENTANA WPF"                   
+        Height="325" 
+        Width="400"			
+        Icon="F:/BORJA80GB/TRABAJANDO/PROJECTS___C#/C#_TEXTO/CSharpProjects6/XAML/Xaml_0001/cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <!-- TÍTULO -->
+            <TextBlock Text="SUMAR DOS NÚMEROS" 
+                   Margin="5" 
+                   FontSize="15" 
+                   TextAlignment="Center" 
+                   Foreground="Blue" />
+
+            <!-- ENTRADA -->
+            <TextBlock Text="Ingresar número 1?" 
+                   Margin="5,5,5,0" 
+                   FontSize="12" 
+                   TextAlignment="Left" />
+            <TextBox Name="txtN1" 
+                 Margin="5" 
+                 FontSize="12" 
+                 TextAlignment="Center" 
+                 Foreground="Blue" />
+
+            <TextBlock Text="Ingresar número 2?" 
+                   Margin="5,5,5,0" 
+                   FontSize="12" 
+                   TextAlignment="Left" />
+            <TextBox Name="txtN2" 
+                 Margin="5" 
+                 FontSize="12" 
+                 TextAlignment="Center" 
+                 Foreground="Blue" />
+
+            <!-- SALIDA -->
+            <TextBlock Text="Resultado:" 
+                   Margin="5,5,5,0" 
+                   FontSize="12" 
+                   TextAlignment="Left" />
+            <TextBox Name="txtSuma" 
+                 Margin="5" 
+                 FontSize="12" 
+                 TextAlignment="Center" 
+                 Foreground="Red" 
+                 IsReadOnly="True" />
+
+            <!-- PROCESO -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Content="Sumar" Margin="5" FontSize="10" Click="BtnSumar_Click" Width="80" />
+                <Button Content="Limpiar" Margin="5" FontSize="10" Click="BtnLimpiar_Click" Width="80" />
+                <Button Content="Salir" Margin="5" FontSize="10" Click="BtnSalir_Click" Width="80" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
+--------------------------------------------------------------------------------
+Ventana.xaml.cs
+--------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace CSharpProjects6.XAML.Xaml_0001
+{
+    /// <summary>
+    /// Lógica de interacción para Ventana.xaml
+    /// </summary>
+    public partial class Ventana : Window
+    {
+        public Ventana()
+        {
+            InitializeComponent();
+        }
+
+        // Método para sumar los números ingresados en las cajas
+        private void BtnSumar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                double n1, n2, suma;
+                n1 = double.Parse(txtN1.Text);
+                n2 = double.Parse(txtN2.Text);
+                suma = n1 + n2;
+                txtSuma.Text = Convert.ToString(Math.Round(suma, 2));
+            }
+            catch (FormatException ex)
+            {
+                //MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Entrada Incorrecta", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        // Método para limpiar las cajas de texto
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtN1.Text = "";
+            txtN2.Text = "";
+            txtSuma.Text = "";
+        }
+
+        // Método para cerrar la ventana
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
+
+----------------
+---   0006   ---
+----------------
+
+<Window x:Class="CSharpProjects6.XAML.Xaml_0002.Ventana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpProjects6.XAML.Xaml_0002"
+        mc:Ignorable="d"
+        
+        Title="VENTANA WPF"                   
+        Height="325" 
+        Width="400"			
+        Icon="F:/BORJA80GB/TRABAJANDO/PROJECTS___C#/C#_TEXTO/CSharpProjects6/XAML/Xaml_0001/cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+
+
+        <Grid Margin="10">
+            <!-- Definir las filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Título -->
+                <RowDefinition Height="Auto" />
+                <!-- Entrada Número 1 -->
+                <RowDefinition Height="Auto" />
+                <!-- Entrada Número 2 -->
+                <RowDefinition Height="Auto" />
+                <!-- Botones -->
+                <RowDefinition Height="Auto" />
+                <!-- Resultado -->
+            </Grid.RowDefinitions>
+
+            <!-- TÍTULO -->
+            <TextBlock Text="SUMAR DOS NÚMEROS" 
+                   Grid.Row="0" 
+                   Margin="5" 
+                   FontSize="15" 
+                   HorizontalAlignment="Center" 
+                   Foreground="Blue" />
+
+            <!-- ENTRADA NÚMERO 1 -->
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Etiqueta -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Caja de Texto -->
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Ingresar número 1:" 
+                       VerticalAlignment="Center" 
+                       Margin="5,0" />
+                <TextBox Name="txtN1" 
+                     Grid.Column="1" 
+                     Margin="5" 
+                     TextAlignment="Center" 
+                     Foreground="Blue" />
+            </Grid>
+
+            <!-- ENTRADA NÚMERO 2 -->
+            <Grid Grid.Row="2" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Etiqueta -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Caja de Texto -->
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Ingresar número 2:" 
+                       VerticalAlignment="Center" 
+                       Margin="5,0" />
+                <TextBox Name="txtN2" 
+                     Grid.Column="1" 
+                     Margin="5" 
+                     TextAlignment="Center" 
+                     Foreground="Blue" />
+            </Grid>
+
+            <!-- BOTONES -->
+            <StackPanel Orientation="Horizontal" 
+                    Grid.Row="3" 
+                    HorizontalAlignment="Center" 
+                    Margin="5">
+                <Button Content="Sumar" Margin="5" Width="80" Click="BtnSumar_Click" />
+                <Button Content="Limpiar" Margin="5" Width="80" Click="BtnLimpiar_Click" />
+                <Button Content="Salir" Margin="5" Width="80" Click="BtnSalir_Click" />
+            </StackPanel>
+
+            <!-- RESULTADO -->
+            <Grid Grid.Row="4" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Etiqueta -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Caja de Texto -->
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Resultado:" 
+                       VerticalAlignment="Center" 
+                       Margin="5,0" />
+                <TextBox Name="txtSuma" 
+                     Grid.Column="1" 
+                     Margin="5" 
+                     TextAlignment="Center" 
+                     Foreground="Red" 
+                     IsReadOnly="True" />
+            </Grid>
+        </Grid>
+</Window>
+
+****************
+***   HILO   ***
+****************
+
+--------------------------------------------------
+---   METODOS PRINCIPALES DE LA CLASE THREAD   ---
+--------------------------------------------------
+
+--------------------------------------------------------------------------------
+1. Start() : Inicia la ejecución de un hilo.
+--------------------------------------------------------------------------------
+(1)
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() => Console.WriteLine("Hilo ejecutándose."));
+        hilo.Start();
+    }
+}
+
+(2)
+
+Aquí tienes el código convertido a C# sin usar expresiones lambda. En este caso, 
+definimos un método separado que realiza la  tarea  que  será  ejecutada por  el 
+hilo:
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        // Crear un nuevo hilo que ejecuta el método HiloEjecucion
+        Thread hilo = new Thread(HiloEjecucion);
+        
+        // Iniciar el hilo
+        hilo.Start();
+    }
+
+    // Método que será ejecutado por el hilo
+    static void HiloEjecucion()
+    {
+        Console.WriteLine("Hilo ejecutándose.");
+    }
+}
+
+Explicación:
+
+Método independiente:
+
+En lugar de usar una expresión lambda para definir la  lógica que  ejecutará  el
+hilo, hemos creado un método llamado HiloEjecucion.
+Uso del método:
+
+El constructor de la clase Thread recibe el nombre del método HiloEjecucion, que
+cumple con la firma esperada: un método que no tiene parámetros y devuelve void.
+Inicio del hilo:
+
+Llamamos a hilo.Start() para iniciar el hilo y ejecutar el  método HiloEjecucion 
+en un hilo separado.
+
+Este  enfoque  es  útil cuando  se prefiere una mayor legibilidad o si necesitas 
+reutilizar el método en otros contextos.
+--------------------------------------------------------------------------------
+2. Join() : Espera a que un hilo termine antes de continuar con la ejecución del
+            hilo principal.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() =>
+        {
+            Thread.Sleep(2000); // Simula una tarea larga
+            Console.WriteLine("Hilo completado.");
+        });
+
+        hilo.Start();
+        Console.WriteLine("Esperando al hilo...");
+        hilo.Join();
+        Console.WriteLine("El hilo ha terminado.");
+    }
+}
+--------------------------------------------------------------------------------
+3. Sleep() : Detiene la ejecución del hilo actual por un tiempo especificado.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Inicio.");
+        Thread.Sleep(1000); // Pausa por 1 segundo
+        Console.WriteLine("1 segundo después.");
+    }
+}
+--------------------------------------------------------------------------------
+4. Abort() : (Obsoleto en .NET Core y .NET 5+) : Detiene   un   hilo   de  forma 
+             abrupta. 
+             Nota: No se recomienda  usar  porque  puede dejar el programa en un
+			 estado inconsistente.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() =>
+        {
+            try
+            {
+                while (true)
+                {
+                    Console.WriteLine("Hilo en ejecución...");
+                    Thread.Sleep(500);
+                }
+            }
+            catch (ThreadAbortException)
+            {
+                Console.WriteLine("Hilo abortado.");
+            }
+        });
+
+        hilo.Start();
+        Thread.Sleep(2000);
+        hilo.Abort(); // No recomendado
+    }
+}
+--------------------------------------------------------------------------------
+5. Interrupt() : Interrumpe un hilo que está en estado de espera o suspensión.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() =>
+        {
+            try
+            {
+                Console.WriteLine("Hilo en espera...");
+                Thread.Sleep(5000);
+            }
+            catch (ThreadInterruptedException)
+            {
+                Console.WriteLine("Hilo interrumpido.");
+            }
+        });
+
+        hilo.Start();
+        Thread.Sleep(1000);
+        hilo.Interrupt();
+    }
+}
+--------------------------------------------------------------------------------
+6. IsAlive : Propiedad que indica si un hilo está en ejecución.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() => Thread.Sleep(2000));
+        hilo.Start();
+
+        while (hilo.IsAlive)
+        {
+            Console.WriteLine("El hilo sigue vivo.");
+            Thread.Sleep(500);
+        }
+
+        Console.WriteLine("El hilo ha terminado.");
+    }
+}
+--------------------------------------------------------------------------------
+7. Priority : Establece o recupera la prioridad de un hilo.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() => Console.WriteLine("Hilo en ejecución."));
+        hilo.Priority = ThreadPriority.Highest;
+        hilo.Start();
+        Console.WriteLine($"Prioridad del hilo: {hilo.Priority}");
+    }
+}
+--------------------------------------------------------------------------------
+8. Name : Asigna o recupera el nombre de un hilo.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() => Console.WriteLine($"Hilo {Thread.CurrentThread.Name} en ejecución."));
+        hilo.Name = "MiHilo";
+        hilo.Start();
+    }
+}
+--------------------------------------------------------------------------------
+9. CurrentThread : Devuelve el hilo que está ejecutándose actualmente.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine($"Hilo actual: {Thread.CurrentThread.ManagedThreadId}");
+    }
+}
+--------------------------------------------------------------------------------
+10. ManagedThreadId : Obtiene el identificador único de un hilo administrado.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() =>
+        {
+            Console.WriteLine($"ID del hilo: {Thread.CurrentThread.ManagedThreadId}");
+        });
+        hilo.Start();
+    }
+}
+--------------------------------------------------------------------------------
+11. Yield() : Libera el procesador para que otros hilos puedan ejecutarse.
+--------------------------------------------------------------------------------
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main()
+    {
+        Thread hilo = new Thread(() =>
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Hilo ejecutando iteración {i}");
+                Thread.Yield(); // Permite a otros hilos ejecutarse
+            }
+        });
+
+        hilo.Start();
+    }
+}
+
+--------------------------------------------
+---   RESUMEN DE METODOS Y PROPIEDADES   ---
+--------------------------------------------
+
+METODO/PROPIEDAD			DESCRIPCION
+
+Start()						Inicia un hilo.
+Join()						Bloquea el hilo actual hasta que otro hilo termine.
+Sleep()						Detiene el hilo actual durante un tiempo especificado.
+Abort()						Detiene un hilo de manera abrupta. (Obsoleto en .NET Core/5+).
+Interrupt()					Interrumpe un hilo que está en espera.
+Yield()						Libera el procesador para que otros hilos puedan ejecutarse.
+
+IsAlive						Indica si un hilo sigue ejecutándose.
+Priority					Establece o recupera la prioridad de un hilo.
+Name						Asigna o recupera el nombre de un hilo.
+CurrentThread				Devuelve el hilo actual que está ejecutándose.
+ManagedThreadId				Obtiene un identificador único del hilo.
+
+************************
+***   BIBLIOGRAFIA   ***
+************************
+
+- MANUAL ONLINE GRATUITO
+
+https://learn.microsoft.com/es-es/dotnet/csharp/programming-guide/
+
+- URL OFICIAL DE DONDE DESCARGAR EL IDE VISUAL STUDIO COMMUNITY
+
+https://visualstudio.microsoft.com/es/
+
+- URL DE PAGINA PARA OBTENER AYUDA
+
+https://stackoverflow.com/
+
+- PATH
+
+H:\SACADO\S.3(C)\WALTER 1\APUNTES\ANTIGUO\Copia de APUNTES Y EJERCICIOS 5X\--- C# ---
+
+- YOUTUBE
+
+https://www.youtube.com/watch?v=L-f8u0hwi4Y
+https://github.com/mouredev/one-day-one-language
+
+- MANUAL OFICIAL DE MICROSOFT
+
+https://learn.microsoft.com/es-es/dotnet/csharp/
+
+- OTROS
+
+https://mouredev.com/lenguajes
+https://retosdeprogramacion.com/
+
+https://dofactory.com/csharp-coding-standards
+
+*******************
+***   APUNTES   ***   
+*******************
+
+- OBTENER LA VERSION DE DEL .NET FRAMEWORK
+
+C:\Users\RYZEN>dotnet --version
+8.0.200
+
+- CREAR UN NUEVO PROYECTO
+
+Crear un nuevo proyecto (Final del lateral derecho)
+Aplicación de consola (.NET Framework) (De la nueva lista de opciones seleccionamos)
+Botón siguiente
+Escribimos lo que nos pide para nuestro primer proyecto
+
+- HALLAR EL ARCHIVO EJECUTABLE DEL PROGRAMA
+
+El archivo ejecutable ya no depende del IDE para ejecutarlo.
+Se encuentra dentro de la carpeta bin en el proyecto que creamos para el programa.
+En el ejemplo anterior HolaMundo sería HolaMundo.exe
+
+F:\CURSOS\TRABAJANDO\PROJECTS___C#\C#_TEXTO\VISUALSTUDIOPROJECTS\HolaMundo\bin\Debug\HolaMundo.exe
+
+- ESCRIBIR UN MENSAJE EN PANTALLA CON CAMBIO DE LINEA
+
+Console.WriteLine("Hola Mundo");
+
+- ESPERAR QUE INGRESAMOS ALGO
+
+Console.ReadKey();
+Console.Read();
+
+- INTERFAZ DE VISUAL STUDIO
+
+Ventana "Program.cs"
+Ventana "Explorador de soluciones"
+Ventana "Salida"
+
+Podemos cerrar una ventana y volverla abrir en la opción de menú "Ver" y elegimos la ventana que deseamos abrir denuevo.
+
+Si sierran la Ventana "Program.cs" haciendo doble clic denuevo en program.cs que esta en la Ventana "Explorador de soluciones" se vuelve abrir.
+
+Para restablecer las ventanas por defecto, opción del menú "Ventana", luego "Restablecer disecho de ventana"
+
+La "Ventana "Salida" se restablece en "Opción del menú Ver luego Salida"
+
+Si queremos crear un nuevo proyecto nos vamos a la opción del menú "Archivo" luego "Ventana de inicio"
+
+- ABRIR LA VENTANA "EXPLORADOR DE SOLUCIONES"
+
+Ver > Explorardor de soluciones
+
+- EVITAR QUE SE CIRRE LA CONSOLA PARA PODER VER EL RESULTADO
+
+Console.Write("Presione cualquier tecla para finalizar...");
+Console.ReadKey();
+
+- ABRIR LA VENTANA "CUADRO DE HERRAMIENTAS"
+
+Ver > Cuadro de herramientas > Todo Windows Forms
+
+- MOSTRAR MENSAJES A TRAVES DE UNA CAJA DE DIALOGO
+
+string nombre = "Walter";
+MessageBox.Show(nombre);
+
+- METODO MAIN PRINCIPAL
+
+static void Main1(string[] args)
+{
+
+}
+

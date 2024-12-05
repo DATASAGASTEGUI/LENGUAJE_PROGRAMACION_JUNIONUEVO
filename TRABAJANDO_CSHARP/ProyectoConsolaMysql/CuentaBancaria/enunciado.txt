@@ -1,0 +1,58 @@
+﻿--------------------------------------------------------------------------------
+Enunciado:
+
+Desarrollar  un  sistema  en  C# para gestionar cuentas bancarias utilizando una 
+base  de  datos  MySQL. El  sistema  debe  permitir  realizar  las    siguientes 
+operaciones:
+
+(1)
+
+Crear una nueva cuenta bancaria: Registrar el titular y el saldo  inicial  en la 
+base de datos.
+
+(2)
+
+Consultar  una  cuenta  existente: Obtener los  datos  de  una cuenta específica 
+utilizando su identificador único.
+
+(3)
+
+Depositar dinero en la cuenta: Incrementar el saldo de la cuenta y  actualizarlo 
+en la base de datos.
+
+(4)
+
+Retirar dinero de la cuenta: Disminuir el saldo de la cuenta  siempre  que  haya 
+fondos suficientes, actualizando el nuevo saldo en la base de datos.
+
+Para ello, se implementará una  clase  llamada  CuentaBancaria  que interactuará 
+directamente con la base de datos para realizar estas operaciones, utilizando el 
+paquete MySql.Data. Además, se diseñará una tabla en la  base  de datos  llamada 
+CuentaBancaria con los campos id (clave primaria), titular y saldo para almacenar
+los datos de las cuentas.
+
+La  solución  permite  mantener  la  consistencia  de  los  datos  al   utilizar 
+transacciones reales desde la base de datos, asegurando  la  integridad  en cada 
+operación de depósito y retiro.
+--------------------------------------------------------------------------------
+
+
+-- (1) ELIMINAR LA BASE DATOS SI EXISTE
+
+DROP DATABASE IF EXISTS BANCO;
+
+-- (2) CREAR LA BASE DE DATOS SI NO EXISTE
+
+CREATE DATABASE IF NOT EXISTS BANCO;
+
+-- (3) SELECCIONARA LA BASE DE DATOS A USAR
+
+USE BANCO;
+
+-- (4) CREAR LA TABLAS SI NO EXISTE
+
+CREATE TABLE CuentaBancaria (
+    id      INT                        AUTO_INCREMENT PRIMARY KEY,
+    titular VARCHAR(100) NOT NULL,
+    saldo   DOUBLE       NOT NULL
+);

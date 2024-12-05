@@ -1,0 +1,57 @@
+﻿<Window x:Class="ProyectoVentanaMysql.DataGridJson.DataGridJsonPersonaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoVentanaMysql.DataGridJson"
+        mc:Ignorable="d"
+        Title="Gestión Productos"                   
+        Height="450" 
+        Width="800"			
+        Icon="C:/LENGUAJE_PROGRAMACION/TRABAJANDO_CSHARP/cross1.png"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        Background="LightGray">
+
+    <Grid>
+        <!-- Tabla de productos -->
+        <DataGrid x:Name="ProductosDataGrid" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <!-- Columna id_producto: Centrado -->
+                <DataGridTextColumn Header="ID Persona" Binding="{Binding idPersona}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" Width="*"/>
+                <DataGridTextColumn Header="Edad" Binding="{Binding edad}" Width="*"/>
+
+                <!-- Columna precio: Justificado a la derecha -->
+                <DataGridTextColumn Header="Estatura" Binding="{Binding estatura}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <!-- Columna stock: Justificado a la derecha -->
+                <DataGridTextColumn Header="Casado" Binding="{Binding casado}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}" Width="Auto"/>
+                <DataGridTextColumn Header="Direccion" Binding="{Binding direccion}" Width="*"/>
+                <DataGridTextColumn Header="Hobbies" Binding="{Binding hobbies}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

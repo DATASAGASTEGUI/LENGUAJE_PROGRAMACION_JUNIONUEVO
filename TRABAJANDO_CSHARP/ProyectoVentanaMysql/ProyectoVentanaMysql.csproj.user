@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="BuscarProductoPorIdComboBox\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CalendarioDinamicoConsultaMedica\DataGridConsultasWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CalendarioDinamicoConsultaMedica\HistorialConsultaMedicaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CalendarioDinamico\CalendarioDinamicoDadoAnioMesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CalendarioDinamico\CalendarioWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Cronometro\CronometroWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CuentaBancaria\BuscarCuentaBancariaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CuentaBancaria\CrearCuentaBancariaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CuentaBancaria\IngresarDineroCuentaBancariaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CuentaBancaria\MenuCuentaBancariaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CuentaBancaria\RetirarDineroCuentaBancariaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DataGridCsv\DataGridCsvWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DataGridJson\DataGridJsonPersonaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DataGridJson\DataGridJsonWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GestionUsuarios\WindowGestionUsuarios.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MenuWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MostrarTodosProductosDataGrid\MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MostrarTodosUsuariosDataGrid\MostrarTodosUsuariosWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\BuscarVentaPorFechaHoraWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\BuscarVentaPorIdWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\GestionProductosWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\GestionUsuariosWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\InventarioWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\MenuAdministradorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\MenuAlmacenWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\MenuCajeroWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\VentanaOpcionesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ProyectoFerreteria\VentaWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Reloj\RelojWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UnSoloMetodoParaVariosBotones\BotonesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UnSoloMetodoParaVariosBotones\CalculadoraWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="BuscarProductoPorIdComboBox\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CalendarioDinamicoConsultaMedica\DataGridConsultasWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CalendarioDinamicoConsultaMedica\HistorialConsultaMedicaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CalendarioDinamico\CalendarioDinamicoDadoAnioMesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CalendarioDinamico\CalendarioWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Cronometro\CronometroWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CuentaBancaria\BuscarCuentaBancariaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CuentaBancaria\CrearCuentaBancariaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CuentaBancaria\IngresarDineroCuentaBancariaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CuentaBancaria\MenuCuentaBancariaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CuentaBancaria\RetirarDineroCuentaBancariaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DataGridCsv\DataGridCsvWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DataGridJson\DataGridJsonPersonaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DataGridJson\DataGridJsonWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GestionUsuarios\WindowGestionUsuarios.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MenuWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MostrarTodosProductosDataGrid\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MostrarTodosUsuariosDataGrid\MostrarTodosUsuariosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\BuscarVentaPorFechaHoraWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\BuscarVentaPorIdWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\GestionProductosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\GestionUsuariosWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\InventarioWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\MenuAdministradorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\MenuAlmacenWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\MenuCajeroWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\VentanaOpcionesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ProyectoFerreteria\VentaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Reloj\RelojWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UnSoloMetodoParaVariosBotones\BotonesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UnSoloMetodoParaVariosBotones\CalculadoraWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

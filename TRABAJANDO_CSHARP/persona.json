@@ -1,0 +1,30 @@
+[
+  {
+    "idPersona": "P1",
+    "nombre": "Juan",
+    "edad": 25,
+    "estatura": 1.72,
+    "casado": true,
+    "sexo": "H",
+    "direccion": {
+      "calle": "Av América",
+      "numero": 123,
+      "ciudad": "Madrid"
+    },
+    "hobbies": [ "Fútbol", "Pintura", "Viajar" ]
+  },
+  {
+    "idPersona": "P2",
+    "nombre": "Carmen",
+    "edad": 21,
+    "estatura": 1.71,
+    "casado": false,
+    "sexo": "M",
+    "direccion": {
+      "calle": "Av. Ejercito",
+      "numero": 456,
+      "ciudad": "Trujillo"
+    },
+    "hobbies": [ "Cine", "Leer" ]
+  }
+]
